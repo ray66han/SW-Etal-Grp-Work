@@ -14,6 +14,12 @@ Overall, the goal of this project is to develop an useful and user-friendly task
 SQL-Lite is our primary database software, downloaded [here](https://www.sqlite.org/index.html)
 
 
-An database generation file has been included in the git reposority, please use it to create your own instance of the database. If you need any help or questions please reach out to Liam.
+A database generation file has been included in the git reposority, please use it to create your own instance of the database. 
+Once you have downloaded both SQL-Lite and the current DB Creation script from the repo, open terminal, and navigate to the same folder as sqlite3 is in and then run the following command;
+```batch
+cat sqlite3 GenerateDatabase.sql | Database.db
+```
 
-Pleae also to make sure to check back often to make sure you have the most recent database file.
+Please make sure to check back often to make sure you have the most recent database file.
+
+If you need any help or questions please reach out to Liam.
