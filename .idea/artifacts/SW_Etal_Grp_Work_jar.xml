@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SW-Etal-Grp-Work:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SW_Etal_Grp_Work_jar</output-path>
+    <root id="archive" name="SW-Etal-Grp-Work.jar">
+      <element id="module-output" name="SW-Etal-Grp-Work" />
+      <element id="module-output" name="Main" />
+    </root>
+  </artifact>
+</component>
