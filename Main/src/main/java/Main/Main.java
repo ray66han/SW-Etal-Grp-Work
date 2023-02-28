@@ -1,12 +1,13 @@
 package Main;
 
-import org.Database.DatabaseConnection;
+import org.Database.DatabaseFunctions;
+
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-        DatabaseConnection database = new DatabaseConnection();
-        database.Connect();
+    public static void main(String[] args) throws SQLException {
+        DatabaseFunctions database = new DatabaseFunctions();
+        database.CreateUser("Milo", "Milo@gmail.com");
 
-   }
+    }
 }

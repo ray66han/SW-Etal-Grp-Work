@@ -1,12 +1,27 @@
 package org.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 
 public class DatabaseFunctions {
+
+    /**
+     * Creates a new user in the database with the following params.
+     *
+     * @param name  Name of the user.
+     * @param email Email of the user.
+     */
+    public void CreateUser(String name, String email) throws SQLException {
+        DatabaseConnection databaseConn = new DatabaseConnection();
+        Connection connection = databaseConn.Connect();
+        String query = "INSERT INTO Users (" + "user_name," + " user_email) VALUES (" + "?, ?)";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, email);
+            preparedStatement.execute();
+        }
+    }
+
 
 }
