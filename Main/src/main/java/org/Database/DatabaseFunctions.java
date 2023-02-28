@@ -16,12 +16,11 @@ public class DatabaseFunctions {
         Connection connection = databaseConn.Connect();
         String query = "INSERT INTO Users (" + "user_name," + " user_email) VALUES (" + "?, ?)";
 
+        // TODO: Add query to search database if user exists already, if they do throw error, if not then continue.
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, email);
             preparedStatement.execute();
         }
     }
-
-
 }

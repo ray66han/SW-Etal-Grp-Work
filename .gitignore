@@ -1,3 +1,4 @@
 # This will ignore all the files that are un-necessary for the project
-.DS_Store 
+.DS_Store
 # Mac OS location will not be included in the project becose of this.
+/database/sqlite3
