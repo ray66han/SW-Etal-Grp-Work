@@ -1,5 +1,7 @@
 package org.Database;
+import Main.User;
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class DatabaseFunctions {
@@ -12,35 +14,76 @@ public class DatabaseFunctions {
      *
      * @param name  Name of the user.
      * @param email Email of the user.
-     * @throws userAlreadyExists
      */
-    public void create_User(String name, String email) throws SQLException {
-        if (!check_Email(email)) {
+    public void CREATE_USER(String name, String email) throws SQLException {
+        User existing_user = GET_USER_WITH_EMAIL(email);
+        if (existing_user == null) {
             String query_adduser = "INSERT INTO Users (" + "user_name," + " user_email) VALUES (" + "?, ?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query_adduser)) {
                 preparedStatement.setString(1, name.toLowerCase());
                 preparedStatement.setString(2, email.toLowerCase());
                 preparedStatement.execute();
 
-                System.out.println("\n[Database] Successfully created user with the following email " + email);
+                System.out.println("[Database] New user succesfully created with email: " + email);
             }
-        } else {throw new userAlreadyExists(email);}
+        } else {
+            System.out.println("User already exists!");
+        }
     }
 
     /**
      *  Deletes a user from the database.
-     * @param email Unique Email to search user for.
+     * @param user User object.
      * @throws userNotFound Throws userNotFound if no user exists in database.
      */
-    public void delete_User(String email) throws SQLException {
-        if (check_Email(email)) {
-            String query = "DELETE FROM users WHERE user_email = ?";
+    public void DELETE_USER(User user) throws SQLException {
+
+        if (user != null) {
+            String query = "DELETE FROM users WHERE user_id = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setString(1, email.toLowerCase());
+                preparedStatement.setInt(1, user.getId());
                 preparedStatement.execute();
-                System.out.println("[Database] Successfully deleted user with the following email; " + email);
+                System.out.println("[Database] Successfully deleted user");
             }
-        } else {throw new userNotFound(email);}
+        } else {throw new userNotFound(user);}
+    }
+
+    /**
+     * Sets a user to a certain group.
+     * @param user The user you wish to modify.
+     * @param groupId The ID of the group you wish to assign them to.
+     * @throws SQLException Throws SQL Error.
+     */
+    public void USER_SET_GROUP(User user, Integer groupId) throws SQLException{
+            String query = "UPDATE USERS SET user_group = ? WHERE user_id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, groupId);
+                preparedStatement.setInt(2, user.getId());
+                preparedStatement.execute();
+                System.out.println("[Database] Successfully assigned user to group id " + groupId);
+            }
+        }
+
+    /**
+     *  Fetch's all users from database with provided group ID.
+     * @param groupID ID of group.
+     * @return Returns an ArrayList of object Users.
+     * @throws SQLException Sql error.
+     */
+    public ArrayList GROUP_LIST_USERS(Integer groupID) throws SQLException {
+        String query = "SELECT * FROM users WHERE user_group = ?";
+        ArrayList<User> user_list = new ArrayList<User> ();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, groupID);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getInt(4));
+                user_list.add(user);
+            }
+            return user_list;
+        }
     }
 
 
@@ -50,18 +93,37 @@ public class DatabaseFunctions {
      * @return  Returns true if user exists in database
      * @throws SQLException Throws custom error.
      */
-    public boolean check_Email(String email) throws SQLException {
+    public User GET_USER_WITH_EMAIL(String email) throws SQLException {
 
         String query = "SELECT * FROM users WHERE user_email = ?";
-        Object user_id;
+        User user;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, email.toLowerCase());
             ResultSet rs = preparedStatement.executeQuery();
-            user_id = rs.getObject(1);
+
+            if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getInt(4));
+            return user;}
+            else return null;
         }
-        return user_id != null;
     }
 
+    public User GET_USER_WITH_ID(Integer id) throws SQLException {
+
+        String query = "SELECT * FROM users WHERE user_id = ?";
+        User user;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+                        rs.getInt(4));
+                return user;}
+            else return null;
+        }
+    }
 
     static class userAlreadyExists extends SQLException
     { public userAlreadyExists(String email)
@@ -69,7 +131,7 @@ public class DatabaseFunctions {
     }
 
     static class userNotFound extends SQLException
-    { public userNotFound(String email)
-    {super("[Database] Could not find the user with the following email: " + email);}
+    { public userNotFound(User user)
+    {super("[Database] Could not find the user!");}
     }
 }
