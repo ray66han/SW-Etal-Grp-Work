@@ -65,7 +65,7 @@ public class DatabaseFunctions {
         }
 
     /**
-     *  Fetch's all users from database with provided group ID.
+     *  Fetches all users from database with provided group ID.
      * @param groupID ID of group.
      * @return Returns an ArrayList of object Users.
      * @throws SQLException Sql error.
