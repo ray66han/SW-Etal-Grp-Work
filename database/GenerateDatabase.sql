@@ -29,7 +29,7 @@ create table chores
         constraint AssignedTo
             references users
             on update set null on delete set null,
-    chore_weight      integer
+    chore_time        integer
 );
 
 create table chore_dates
@@ -41,13 +41,13 @@ create table chore_dates
     chore_date_expired integer
 );
 
-
-
-INSERT INTO users (user_id, user_name, user_points) VALUES (1, 'Alex', 0);
-INSERT INTO users (user_id, user_name, user_points) VALUES (2, 'Sophia', 0);
-INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_weight) VALUES (1, 'Wash clothes, bed sheets and towels', 0, 1, null, 0);
-INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_weight) VALUES (2, 'Vaccum & Sweep all floors.', 0, 1, null, 0);
-INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_weight) VALUES (3, 'Dust surfaces.', 0, 1, null, 0);
-INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_weight) VALUES (4, 'Thoroughly clean bathrooms.', 0, 1, null, 0);
-INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_weight) VALUES (5, 'Empty bins.', 0, 1, null, 0);
-INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_weight) VALUES (6, 'Water plants.', 0, 0, null, 0);
+INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_Time)
+VALUES (1, 'Wash clothes, bed sheets and towels', 0, 1, null, 0);
+INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_Time)
+VALUES (2, 'Vaccum & Sweep all floors.', 0, 1, null, 0);
+INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_Time)
+VALUES (3, 'Dust surfaces.', 0, 1, 1, 0);
+INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_Time)
+VALUES (4, 'Thoroughly clean bathrooms.', 0, 1, null, 0);
+INSERT INTO chores (chore_id, chore_name, chore_status, chore_reoccuring, chore_assigned_to, chore_Time)
+VALUES (6, 'Water plants.', 0, 0, null, 0);

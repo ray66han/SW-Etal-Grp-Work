@@ -6,7 +6,7 @@ public class Chore {
     Integer status;
     Boolean reoccuring;
     Integer assigned_to;
-    Integer weight;
+    Integer time;
 
     /**
      * @param id          The ID of the chore
@@ -14,15 +14,15 @@ public class Chore {
      * @param status      Current status, E.g Not Done, Doing, Done
      * @param reoccuring  Is this chore reoccuring? E.g weekly
      * @param assigned_to Who is completing this chore?
-     * @param weight      Overral time estimate of this chore.
+     * @param time        Overral time estimate of this chore.
      */
-    public Chore(Integer id, String name, Integer status, Boolean reoccuring, Integer assigned_to, Integer weight) {
+    public Chore(Integer id, String name, Integer status, Boolean reoccuring, Integer assigned_to, Integer time) {
         this.id = id;
         this.name = name;
         this.status = status;
         this.reoccuring = reoccuring;
         this.assigned_to = assigned_to;
-        this.weight = weight;
+        this.time = time;
     }
 
 
@@ -66,12 +66,12 @@ public class Chore {
         this.assigned_to = assigned_to;
     }
 
-    public Integer getWeight() {
-        return weight;
+    public Integer getTime() {
+        return time;
     }
 
-    public void setWeight(Integer weight) {
-        this.weight = weight;
+    public void setTime(Integer time) {
+        this.time = time;
     }
 }
 
