@@ -2,3 +2,7 @@
 .DS_Store
 # Mac OS location will not be included in the project becose of this.
 /database/sqlite3
+*.db
+.idea/libraries/sqlite_jdbc_3_40_1_0.xml
+.idea/libraries/sqlite_jdbc_3_40_1_0.xml
+.idea/libraries/sqlite_jdbc_3_40_1_0.xml

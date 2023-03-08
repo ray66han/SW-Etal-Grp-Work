@@ -1,7 +1,6 @@
 package org.Database;
-
-
 import java.sql.*;
+
 
 public class DatabaseConnection {
     private Connection connection;
@@ -19,6 +18,8 @@ public class DatabaseConnection {
             connection = DriverManager.getConnection(url);
             System.out.println("[DATABASE]: Connection to (" + url + ") has been successfully established.");
         } catch (SQLException e) { System.out.println("Failed to connect  to " + url); e.printStackTrace();}
+
         return connection;
     }
+
 }
