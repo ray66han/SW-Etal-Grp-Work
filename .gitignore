@@ -3,3 +3,6 @@
 # Mac OS location will not be included in the project becose of this.
 /database/sqlite3
 database/database.db
+*.xml
+*.xml
+*.xml

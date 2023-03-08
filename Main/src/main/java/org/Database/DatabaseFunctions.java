@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class DatabaseFunctions {
 
-    // TODO Create tenporary chore func
+    // TODO Create temporary chore func
     // TODO Set chore status
     // TODO Set chore assigned to
 
@@ -72,11 +72,41 @@ public class DatabaseFunctions {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+
+    public void DELETE_CHORE(Chore chore) throws SQLException {
+        if (chore != null) {
+            String query = "DELETE FROM chores WHERE chore_id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, chore.getId());
+                preparedStatement.execute();
+                System.out.println("[Database] Successfully deleted chore");
+            }
+        } else {throw new choreNotFound(chore);}
+    }
+    public Chore GET_CHORE_WITH_ID(Integer id) throws SQLException {
+
+        String query = "SELECT * FROM chores WHERE chore_id = ?";
+        Chore chore;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
+                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4), rs.getInt(5), rs.getInt(6));
+                return chore;}
+            else return null;
+        }
+    }
+
 
     static class userNotFound extends SQLException
     { public userNotFound(User user)
     {super("[Database] Could not find the user!");}
     }
+    static class choreNotFound extends SQLException
+    { public choreNotFound(Chore chore)
+    {super("[Database] Could not find the chore!");}
+    }
+
 }
