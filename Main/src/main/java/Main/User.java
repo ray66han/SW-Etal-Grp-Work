@@ -3,7 +3,15 @@ package Main;
 public class User {
     Integer id;
     String name;
-    Integer points;
+    String email;
+    Integer group;
+
+    public User(Integer id, String name, String email, Integer group) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.group = group;
+    }
 
     public Integer getId() {
         return id;
@@ -21,20 +29,19 @@ public class User {
         this.name = name;
     }
 
-    public Integer getPoints() {
-        return points;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPoints(Integer points) {
-        this.points = points;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public User(Integer id, String name, Integer points) {
-        this.id = id;
-        this.name = name;
-        this.points = points;
+    public Integer getGroup() {
+        return group;
+    }
 
-
-
+    public void setGroup(Integer group) {
+        this.group = group;
     }
 }
