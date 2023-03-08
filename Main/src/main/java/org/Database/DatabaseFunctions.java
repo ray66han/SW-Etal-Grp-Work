@@ -94,19 +94,35 @@ public class DatabaseFunctions {
 
             if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
                 chore = new Chore(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4), rs.getInt(5), rs.getInt(6));
-                return chore;}
-            else return null;
+                return chore;
+            } else return null;
         }
     }
 
+    public void ASSIGN_CHORE_TO_USER(Chore chore, User user) throws SQLException {
 
-    static class userNotFound extends SQLException
-    { public userNotFound(User user)
-    {super("[Database] Could not find the user!");}
+        String query = "UPDATE chores SET chore_assigned_to = ? WHERE chore_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setInt(2, chore.getId());
+            preparedStatement.execute();
+            System.out.println("[Database] Successfully assigned chore ID " + chore.getId() + " to user ID " + user.getId());
+        }
+
+
     }
-    static class choreNotFound extends SQLException
-    { public choreNotFound(Chore chore)
-    {super("[Database] Could not find the chore!");}
+
+
+    static class userNotFound extends SQLException {
+        public userNotFound(User user) {
+            super("[Database] Could not find the user!");
+        }
+    }
+
+    static class choreNotFound extends SQLException {
+        public choreNotFound(Chore chore) {
+            super("[Database] Could not find the chore!");
+        }
     }
 
 }
