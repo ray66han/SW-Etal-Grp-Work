@@ -3,9 +3,9 @@ package Main;
 public class Chore {
     Integer id;
     String name;
-    Integer status;
+    String status;
     Boolean reoccuring;
-    Integer assigned_to;
+    String assigned_to;
     Integer time;
 
     /**
@@ -16,7 +16,7 @@ public class Chore {
      * @param assigned_to Who is completing this chore?
      * @param time        Overral time estimate of this chore.
      */
-    public Chore(Integer id, String name, Integer status, Boolean reoccuring, Integer assigned_to, Integer time) {
+    public Chore(Integer id, String name, String status, Boolean reoccuring, Integer time, String assigned_to) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -24,6 +24,7 @@ public class Chore {
         this.assigned_to = assigned_to;
         this.time = time;
     }
+
 
 
     public Integer getId() {
@@ -42,11 +43,11 @@ public class Chore {
         this.name = name;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -58,11 +59,11 @@ public class Chore {
         this.reoccuring = reoccuring;
     }
 
-    public Integer getAssigned_to() {
+    public String getAssigned_to() {
         return assigned_to;
     }
 
-    public void setAssigned_to(Integer assigned_to) {
+    public void setAssigned_to(String assigned_to) {
         this.assigned_to = assigned_to;
     }
 

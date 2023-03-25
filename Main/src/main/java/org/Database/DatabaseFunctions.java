@@ -63,7 +63,7 @@ public class DatabaseFunctions {
     }
 
     public void CREATE_CHORE(String name, Integer weight) { // TODO Setup return chore
-        String query_addchore = "INSERT INTO Chores (" + "chore_name," + " chore_weight) VALUES (" + "?, ?)";
+        String query_addchore = "INSERT INTO Chores (" + "chore_name," + " chore_time) VALUES (" + "?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query_addchore)) {
             preparedStatement.setString(1, name.toLowerCase());
             preparedStatement.setInt(2, weight);
@@ -93,11 +93,33 @@ public class DatabaseFunctions {
             ResultSet rs = preparedStatement.executeQuery();
 
             if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
-                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4), rs.getInt(5), rs.getInt(6));
+                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5), rs.getString(6));
                 return chore;
             } else return null;
         }
     }
+
+    public ArrayList<Chore> GET_FULL_CHORE_LIST() {
+        String query = "SELECT chore_id, chore_name, status_desc, chore_reoccuring, chore_time, user_name FROM Chores\n" +
+                "    left JOIN users u on u.user_id = chores.chore_assigned_to\n" +
+                "    JOIN chore_status cs on cs.status_id = chores.chore_status";
+        Chore chore;
+        ArrayList<Chore> list = new ArrayList<Chore>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5), rs.getString(6));
+                list.add(chore);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+//    public ArrayList<Chore> GET_THIS_WEEK_CHORE_LIST() {}
+//    public ArrayList<Chore> GET_LAST_WEEK_CHORE_LIST() {}
 
     public void ASSIGN_CHORE_TO_USER(Chore chore, User user) throws SQLException {
 
@@ -108,8 +130,6 @@ public class DatabaseFunctions {
             preparedStatement.execute();
             System.out.println("[Database] Successfully assigned chore ID " + chore.getId() + " to user ID " + user.getId());
         }
-
-
     }
 
 
