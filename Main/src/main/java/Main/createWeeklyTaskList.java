@@ -172,7 +172,6 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
 
     private void notDoneAlertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notDoneAlertBtnActionPerformed
         // TODO add your handling code here:
-        showAlertLate();
     }//GEN-LAST:event_notDoneAlertBtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
