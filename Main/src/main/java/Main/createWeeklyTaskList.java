@@ -33,16 +33,16 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        btnHome = new javax.swing.JButton();
+        btnCreateList = new javax.swing.JButton();
+        btnViewTask = new javax.swing.JButton();
+        btnAchievement = new javax.swing.JButton();
+        lblCreateList = new javax.swing.JLabel();
+        spList = new javax.swing.JScrollPane();
         createChoresListTable = new javax.swing.JTable();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnAddTask = new javax.swing.JButton();
+        btnGenList = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         jButton1.setText("Home");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,25 +73,25 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton5.setText("Home");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Create Chores List");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateList.setText("Create Chores List");
+        btnCreateList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnCreateListActionPerformed(evt);
             }
         });
 
-        jButton7.setText("View Task");
+        btnViewTask.setText("View Task");
 
-        jButton8.setText("Achivement");
+        btnAchievement.setText("Achievement");
 
-        jLabel2.setText("Create Weekly Task List");
+        lblCreateList.setText("Create Weekly Task List");
 
         createChoresListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,13 +104,13 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
                 "Task Name", "Description", "User 1 est", "User 2 est", "Status", "Delete(may remove)"
             }
         ));
-        jScrollPane1.setViewportView(createChoresListTable);
+        spList.setViewportView(createChoresListTable);
 
-        jButton9.setText("Add Task");
+        btnAddTask.setText("Add Task");
 
-        jButton10.setText("Generate List");
+        btnGenList.setText("Generate List");
 
-        jButton11.setText("Cancel");
+        btnCancel.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,46 +120,45 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(178, 178, 178)
-                        .addComponent(jLabel2))
+                        .addComponent(lblCreateList))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton9)
+                                .addComponent(btnAddTask)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton11))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton5)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jButton6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton7)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jButton8))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                                .addComponent(btnGenList)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCancel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnHome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCreateList)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnViewTask)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnAchievement))
+                            .addComponent(spList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(lblCreateList)
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(btnHome)
+                    .addComponent(btnCreateList)
+                    .addComponent(btnViewTask)
+                    .addComponent(btnAchievement))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spList, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11))
+                    .addComponent(btnAddTask)
+                    .addComponent(btnGenList)
+                    .addComponent(btnCancel))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -179,13 +178,13 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnCreateListActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,21 +222,21 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAchievement;
+    private javax.swing.JButton btnAddTask;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCreateList;
+    private javax.swing.JButton btnGenList;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnViewTask;
     private javax.swing.JTable createChoresListTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCreateList;
     private javax.swing.JButton notDoneAlertBtn;
+    private javax.swing.JScrollPane spList;
     // End of variables declaration//GEN-END:variables
 }
