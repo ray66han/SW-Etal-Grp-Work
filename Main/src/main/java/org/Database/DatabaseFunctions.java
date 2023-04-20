@@ -1,10 +1,17 @@
 package org.Database;
+import Main.Chore;
 import Main.User;
 import java.sql.*;
 import java.util.ArrayList;
 
 
 public class DatabaseFunctions {
+
+    // TODO Create temporary chore func
+    // TODO Set chore status
+    // TODO Set chore assigned to
+
+
     DatabaseConnection databaseConn = new DatabaseConnection();
     Connection connection = databaseConn.Connect();
 
@@ -13,21 +20,13 @@ public class DatabaseFunctions {
      * Creates a new user in the database with the following params.
      *
      * @param name  Name of the user.
-     * @param email Email of the user.
      */
-    public void CREATE_USER(String name, String email) throws SQLException {
-        User existing_user = GET_USER_WITH_EMAIL(email);
-        if (existing_user == null) {
-            String query_adduser = "INSERT INTO Users (" + "user_name," + " user_email) VALUES (" + "?, ?)";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query_adduser)) {
-                preparedStatement.setString(1, name.toLowerCase());
-                preparedStatement.setString(2, email.toLowerCase());
-                preparedStatement.execute();
-
-                System.out.println("[Database] New user succesfully created with email: " + email);
-            }
-        } else {
-            System.out.println("User already exists!");
+    public void CREATE_USER(String name) throws SQLException {
+        String query_adduser = "INSERT INTO Users (" + "user_name," + " user_points) VALUES (" + "?, 0)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query_adduser)) {
+            preparedStatement.setString(1, name.toLowerCase());
+            preparedStatement.execute();
+            System.out.println("[Database] New user successfully created");
         }
     }
 
@@ -48,67 +47,6 @@ public class DatabaseFunctions {
         } else {throw new userNotFound(user);}
     }
 
-    /**
-     * Sets a user to a certain group.
-     * @param user The user you wish to modify.
-     * @param groupId The ID of the group you wish to assign them to.
-     * @throws SQLException Throws SQL Error.
-     */
-    public void USER_SET_GROUP(User user, Integer groupId) throws SQLException{
-            String query = "UPDATE USERS SET user_group = ? WHERE user_id = ?";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, groupId);
-                preparedStatement.setInt(2, user.getId());
-                preparedStatement.execute();
-                System.out.println("[Database] Successfully assigned user to group id " + groupId);
-            }
-        }
-
-    /**
-     *  Fetch's all users from database with provided group ID.
-     * @param groupID ID of group.
-     * @return Returns an ArrayList of object Users.
-     * @throws SQLException Sql error.
-     */
-    public ArrayList GROUP_LIST_USERS(Integer groupID) throws SQLException {
-        String query = "SELECT * FROM users WHERE user_group = ?";
-        ArrayList<User> user_list = new ArrayList<User> ();
-
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, groupID);
-            ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getInt(4));
-                user_list.add(user);
-            }
-            return user_list;
-        }
-    }
-
-
-    /** Checks if user with existing email already exists in database.
-     *
-     * @param email Email to search database for
-     * @return  Returns true if user exists in database
-     * @throws SQLException Throws custom error.
-     */
-    public User GET_USER_WITH_EMAIL(String email) throws SQLException {
-
-        String query = "SELECT * FROM users WHERE user_email = ?";
-        User user;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, email.toLowerCase());
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
-                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getInt(4));
-            return user;}
-            else return null;
-        }
-    }
-
     public User GET_USER_WITH_ID(Integer id) throws SQLException {
 
         String query = "SELECT * FROM users WHERE user_id = ?";
@@ -118,20 +56,93 @@ public class DatabaseFunctions {
             ResultSet rs = preparedStatement.executeQuery();
 
             if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
-                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getInt(4));
+                user = new User(rs.getInt(1), rs.getString(2), rs.getInt(3));
                 return user;}
             else return null;
         }
     }
 
-    static class userAlreadyExists extends SQLException
-    { public userAlreadyExists(String email)
-        {super("[Database] User with the email " + email + "already exists in the database!");}
+    public void CREATE_CHORE(String name, Integer weight) { // TODO Setup return chore
+        String query_addchore = "INSERT INTO Chores (" + "chore_name," + " chore_time) VALUES (" + "?, ?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query_addchore)) {
+            preparedStatement.setString(1, name.toLowerCase());
+            preparedStatement.setInt(2, weight);
+            preparedStatement.execute();
+            System.out.println("[Database] New chore successfully created");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    static class userNotFound extends SQLException
-    { public userNotFound(User user)
-    {super("[Database] Could not find the user!");}
+    public void DELETE_CHORE(Chore chore) throws SQLException {
+        if (chore != null) {
+            String query = "DELETE FROM chores WHERE chore_id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, chore.getId());
+                preparedStatement.execute();
+                System.out.println("[Database] Successfully deleted chore");
+            }
+        } else {throw new choreNotFound(chore);}
     }
+    public Chore GET_CHORE_WITH_ID(Integer id) throws SQLException {
+
+        String query = "SELECT * FROM chores WHERE chore_id = ?";
+        Chore chore;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
+                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5), rs.getString(6));
+                return chore;
+            } else return null;
+        }
+    }
+
+    public ArrayList<Chore> GET_FULL_CHORE_LIST() {
+        String query = "SELECT chore_id, chore_name, status_desc, chore_reoccuring, chore_time, user_name FROM Chores\n" +
+                "    left JOIN users u on u.user_id = chores.chore_assigned_to\n" +
+                "    JOIN chore_status cs on cs.status_id = chores.chore_status";
+        Chore chore;
+        ArrayList<Chore> list = new ArrayList<Chore>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5), rs.getString(6));
+                list.add(chore);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+//    public ArrayList<Chore> GET_THIS_WEEK_CHORE_LIST() {}
+//    public ArrayList<Chore> GET_LAST_WEEK_CHORE_LIST() {}
+
+    public void ASSIGN_CHORE_TO_USER(Chore chore, User user) throws SQLException {
+
+        String query = "UPDATE chores SET chore_assigned_to = ? WHERE chore_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setInt(2, chore.getId());
+            preparedStatement.execute();
+            System.out.println("[Database] Successfully assigned chore ID " + chore.getId() + " to user ID " + user.getId());
+        }
+    }
+
+
+    static class userNotFound extends SQLException {
+        public userNotFound(User user) {
+            super("[Database] Could not find the user!");
+        }
+    }
+
+    static class choreNotFound extends SQLException {
+        public choreNotFound(Chore chore) {
+            super("[Database] Could not find the chore!");
+        }
+    }
+
 }
