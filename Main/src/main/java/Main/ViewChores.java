@@ -4,11 +4,16 @@
  */
 package Main;
 
-import java.sql.*;
-import javax.swing.JComboBox;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.DefaultCellEditor;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author usercc
@@ -80,19 +85,36 @@ public class ViewChores extends javax.swing.JFrame {
                 "Task", "Description", "User-01 Task", "User-02 Task", "Changing Status"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, true
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         viewTaskTableOne.setColumnSelectionAllowed(true);
+        viewTaskTableOne.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                viewTaskTableOnePropertyChange(evt);
+            }
+        });
+        viewTaskTableOne.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                viewTaskTableOneVetoableChange(evt);
+            }
+        });
         jScrollPane1.setViewportView(viewTaskTableOne);
         viewTaskTableOne.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (viewTaskTableOne.getColumnModel().getColumnCount() > 0) {
-            viewTaskTableOne.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(comboBox));
+            viewTaskTableOne.getColumnModel().getColumn(4).setCellEditor(null);
         }
 
         viewTaskTableTwo.setModel(new javax.swing.table.DefaultTableModel(
@@ -103,9 +125,16 @@ public class ViewChores extends javax.swing.JFrame {
                 "Task", "Description", "User-01 Task", "User-02 Task", "Changing Status"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -218,12 +247,32 @@ public class ViewChores extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        
         showAlertLate();
+        DefaultTableModel model = (DefaultTableModel)viewTaskTableOne.getModel();
         sendQuery("SELECT * FROM chores Where chore_date >= date('now', 'weekday 5', '-7 days')", "One");
         sendQuery("SELECT * FROM chores Where chore_status = 0 and chore_date <= date('now', 'weekday 5', '-7 days') and chore_date >= date('now', 'weekday 5', '-14 days')", "Two");
+        viewTaskTableOne.getModel().addTableModelListener(ev -> {
+            if (ev.getType() == TableModelEvent.UPDATE)
+            {
+                int row = ev.getFirstRow();
+                int column = ev.getColumn();
+                String result = viewTaskTableOne.getModel().getValueAt(row, column).toString();
+                String task = viewTaskTableOne.getModel().getValueAt(row, 0).toString();
+                String setValue = (result == "true") ? "0" : "1";
+                System.out.println(result + " - " + task + " - " + setValue);
+                sendQuery("UPDATE chores SET chore_status = " + setValue + " WHERE chore_name = '" + task + "'", "None");
+            }
+        });
     }//GEN-LAST:event_formWindowOpened
 
-    static JComboBox<String> comboBox = new JComboBox<>();
+    private void viewTaskTableOnePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_viewTaskTableOnePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewTaskTableOnePropertyChange
+
+    private void viewTaskTableOneVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_viewTaskTableOneVetoableChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewTaskTableOneVetoableChange
 
     
     /**
@@ -253,11 +302,6 @@ public class ViewChores extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        // add an item to the combo box in one line
-        comboBox.addItem("Done");
-        comboBox.addItem("Not Done");
-        comboBox.addItem("Assigned");
-        comboBox.addItem("Not - assigned"); 
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -280,12 +324,12 @@ public class ViewChores extends javax.swing.JFrame {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM chores Where chore_status != 0 and chore_date >= date('now', 'weekday 5', '-7 days')");
 
-            String toShow = "Chores not done: \n";
+            String toShow = "";
             // Retrieve data from the result set
             while (rs.next()) {
-                toShow += rs.getString("chore_name") + "\n";
+                toShow += rs.getString("chore_name") + " - " + (rs.getBoolean("chore_second_user") ? "User 2" : "User 1") + "\n";
             }
-            JOptionPane.showMessageDialog(null, toShow, "Alert", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, toShow, "Chores not done", JOptionPane.WARNING_MESSAGE);
 
             // Close the result set, statement, and connection
             rs.close();
@@ -329,7 +373,7 @@ public class ViewChores extends javax.swing.JFrame {
                 while (rs.next()) {
                     model.addRow(new Object[]{rs.getString("chore_name"),
                     rs.getString("chore_desc"),(rs.getBoolean("chore_first_user") ? "Yes" : "No"),
-                    (rs.getBoolean("chore_second_user") ? "Yes" : "No"),comboBox.getItemAt(rs.getInt("chore_status"))});
+                    (rs.getBoolean("chore_second_user") ? "Yes" : "No"),(rs.getInt("chore_status") == 0 ? true : false)});
                 }
             }
             else if (tableName == "Two") {
@@ -342,17 +386,16 @@ public class ViewChores extends javax.swing.JFrame {
                 while (rs.next()) {
                     model.addRow(new Object[]{rs.getString("chore_name"),
                     rs.getString("chore_desc"),(rs.getBoolean("chore_first_user") ? "Yes" : "No"),
-                    (rs.getBoolean("chore_second_user") ? "Yes" : "No"),comboBox.getItemAt(rs.getInt("chore_status"))});
+                    (rs.getBoolean("chore_second_user") ? "Yes" : "No"),(rs.getInt("chore_status") == 0 ? true : false)});
                 }
             }
-
             // Close the result set, statement, and connection
             rs.close();
             stmt.close();
             conn.close();
             
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
         } finally {
             try {
                 if (conn != null) {
