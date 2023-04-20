@@ -26,27 +26,25 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnAddTask" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
+                      <Component id="btnAddTask" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="219" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblTaskStatus" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblTaskDesc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblTaskStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTaskDesc" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblTaskName" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtTaskName" min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="txtTaskStatus" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtTaskDesc" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtTaskStatus" max="32767" attributes="0"/>
+                          <Component id="txtTaskDesc" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtTaskName" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
