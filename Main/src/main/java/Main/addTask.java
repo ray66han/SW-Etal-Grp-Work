@@ -1,21 +1,26 @@
+package Main;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package Main;
 
 /**
  *
- * @author calla
+ * @author w20003032
  */
-public class addTask extends javax.swing.JFrame {
-
+public class addTask extends javax.swing.JDialog {
+    createWeeklyTaskList parent;
     /**
-     * Creates new form addTask
+     * Creates new form addTaskDialogue
      */
-    public addTask() {
+    public addTask(createWeeklyTaskList parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        this.parent = parent;
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,18 +31,16 @@ public class addTask extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTaskName = new javax.swing.JLabel();
         txtTaskName = new javax.swing.JTextField();
         lblTaskDesc = new javax.swing.JLabel();
         lblTaskStatus = new javax.swing.JLabel();
-        btnAddTask = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         txtTaskDesc = new javax.swing.JTextField();
         txtTaskStatus = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
+        lblTaskName = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblTaskName.setText("Task Name");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         txtTaskName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,7 +52,12 @@ public class addTask extends javax.swing.JFrame {
 
         lblTaskStatus.setText("Task Status");
 
-        btnAddTask.setText("Add Task");
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         txtTaskDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +72,13 @@ public class addTask extends javax.swing.JFrame {
         });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        lblTaskName.setText("Task Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +90,7 @@ public class addTask extends javax.swing.JFrame {
                     .addComponent(lblTaskStatus)
                     .addComponent(lblTaskDesc)
                     .addComponent(lblTaskName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtTaskStatus)
                     .addComponent(txtTaskDesc)
@@ -83,7 +98,7 @@ public class addTask extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAddTask)
+                .addComponent(btnSubmit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancel)
                 .addContainerGap())
@@ -103,9 +118,9 @@ public class addTask extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTaskStatus)
                     .addComponent(txtTaskStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddTask)
+                    .addComponent(btnSubmit)
                     .addComponent(btnCancel))
                 .addContainerGap())
         );
@@ -124,6 +139,16 @@ public class addTask extends javax.swing.JFrame {
     private void txtTaskStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaskStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTaskStatusActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        parent.insertChore(txtTaskName.getText(), txtTaskDesc.getText(), txtTaskStatus.getText());
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,18 +176,26 @@ public class addTask extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(addTask.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new addTask().setVisible(true);
+                addTask dialog = new addTask(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddTask;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel lblTaskDesc;
     private javax.swing.JLabel lblTaskName;
     private javax.swing.JLabel lblTaskStatus;

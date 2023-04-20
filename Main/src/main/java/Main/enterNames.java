@@ -1,20 +1,26 @@
+package Main;
+
+
+import Main.createWeeklyTaskList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package Main;
 
 /**
  *
  * @author w20003032
  */
-public class enterNames extends javax.swing.JFrame {
-
+public class enterNames extends javax.swing.JDialog {
+    createWeeklyTaskList parent;
     /**
-     * Creates new form enterNames
+     * Creates new form enterNamesDialogue
      */
-    public enterNames() {
+    public enterNames(createWeeklyTaskList parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        this.parent = parent;
     }
 
     /**
@@ -31,9 +37,9 @@ public class enterNames extends javax.swing.JFrame {
         lblName2 = new javax.swing.JLabel();
         txtName2 = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
-        btnAddNames = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblName1.setText("User 1 Name:");
 
@@ -52,11 +58,16 @@ public class enterNames extends javax.swing.JFrame {
         });
 
         btnCancel.setText("Cancel");
-
-        btnAddNames.setText("Add");
-        btnAddNames.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNamesActionPerformed(evt);
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
             }
         });
 
@@ -66,7 +77,7 @@ public class enterNames extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAddNames)
+                .addComponent(btnSubmit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancel)
                 .addContainerGap())
@@ -75,7 +86,7 @@ public class enterNames extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblName1)
                     .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblName2)
                     .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -94,10 +105,10 @@ public class enterNames extends javax.swing.JFrame {
                         .addComponent(lblName2)
                         .addGap(7, 7, 7)
                         .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel)
-                    .addComponent(btnAddNames))
+                    .addComponent(btnSubmit))
                 .addContainerGap())
         );
 
@@ -112,9 +123,14 @@ public class enterNames extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtName2ActionPerformed
 
-    private void btnAddNamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNamesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddNamesActionPerformed
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        parent.insertNames(txtName1.getText(), txtName2.getText());
+        this.dispose();
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,18 +158,26 @@ public class enterNames extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(enterNames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new enterNames().setVisible(true);
+                enterNames dialog = new enterNames(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNames;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblName2;
     private javax.swing.JTextField txtName1;
