@@ -55,12 +55,11 @@ public class DatabaseFunctions {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
 
-            if (!(rs.getInt(1) == 0)) { // If database returns an actual user with an id:
-                user = new User(rs.getInt(1), rs.getString(2), rs.getInt(3));
-                return user;}
-            else return null;
+            // If database returns an actual user with an id:
+            user = new User(rs.getInt(1), rs.getString(2), rs.getInt(3), 0, 0);
+            return user;
         }
-    }
+        }
 
     public void CREATE_CHORE(String name, Integer weight) { // TODO Setup return chore
         String query_addchore = "INSERT INTO Chores (" + "chore_name," + " chore_time) VALUES (" + "?, ?)";
@@ -118,8 +117,30 @@ public class DatabaseFunctions {
         }
     }
 
-//    public ArrayList<Chore> GET_THIS_WEEK_CHORE_LIST() {}
+    //    public ArrayList<Chore> GET_THIS_WEEK_CHORE_LIST() {}
 //    public ArrayList<Chore> GET_LAST_WEEK_CHORE_LIST() {}
+    public Integer GET_USER_TOTAL_CHORES(User user) throws SQLException {
+        String query = "SELECT COUNT(*) chore_assigned_to FROM chores WHERE chore_assigned_to = ?;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, user.getId());
+            ResultSet rs = preparedStatement.executeQuery();
+            Integer total = rs.getInt(1);
+            System.out.println("[Database] Successfully returned user's total assigned chores, " + total);
+            return total;
+        }
+    }
+
+    public Integer GET_USER_COMPLETED_CHORES(User user) throws SQLException {
+        String query = "SELECT COUNT(*) chore_assigned_to FROM chores WHERE chore_assigned_to = ? AND chore_status = 2;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, user.getId());
+            ResultSet rs = preparedStatement.executeQuery();
+            Integer total = rs.getInt(1);
+            System.out.println("[Database] Successfully returned user's completed chores, " + total);
+            return total;
+        }
+    }
+
 
     public void ASSIGN_CHORE_TO_USER(Chore chore, User user) throws SQLException {
 
