@@ -61,7 +61,7 @@ public class DatabaseFunctions {
         }
         }
 
-    public void CREATE_CHORE(String name, Integer weight) { // TODO Setup return chore
+    public void CREATE_CHORE(String name, Integer weight) {
         String query_addchore = "INSERT INTO Chores (" + "chore_name," + " chore_time) VALUES (" + "?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query_addchore)) {
             preparedStatement.setString(1, name.toLowerCase());
@@ -73,6 +73,55 @@ public class DatabaseFunctions {
         }
     }
 
+    public void SET_CHORE_NAME(Chore chore, String name) {
+        String query_setname = "UPDATE chores SET chore_name = ? WHERE chore_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query_setname)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, chore.getId());
+            preparedStatement.execute();
+            System.out.println("[Database] Updated chore with new name!");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void SET_CHORE_STATUS(Chore chore, Integer status) {
+        String query_setstatus = "UPDATE chores SET chore_status = ? WHERE chore_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query_setstatus)) {
+            preparedStatement.setInt(1, status);
+            preparedStatement.setInt(2, chore.getId());
+            preparedStatement.execute();
+            System.out.println("[Database] Updated chore with new status!");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void SET_CHORE_WEEKLY(Chore chore, boolean weekly) {
+        String query_setweekly = "UPDATE chores SET chore_status = ? WHERE chore_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query_setweekly)) {
+            preparedStatement.setBoolean(1, weekly);
+            preparedStatement.setInt(2, chore.getId());
+            preparedStatement.execute();
+            System.out.println("[Database] Updated chore with new weekly status");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void SET_CHORE_TIME(Chore chore, Integer time) {
+        String query_settime = "UPDATE chores SET chore_time = ? WHERE chore_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query_settime)) {
+            preparedStatement.setInt(1, time);
+            preparedStatement.setInt(2, chore.getId());
+            preparedStatement.execute();
+            System.out.println("[Database] Updated chore with new time");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public void DELETE_CHORE(Chore chore) throws SQLException {
         if (chore != null) {
             String query = "DELETE FROM chores WHERE chore_id = ?";
@@ -81,7 +130,9 @@ public class DatabaseFunctions {
                 preparedStatement.execute();
                 System.out.println("[Database] Successfully deleted chore");
             }
-        } else {throw new choreNotFound(chore);}
+        } else {
+            throw new choreNotFound(chore);
+        }
     }
     public Chore GET_CHORE_WITH_ID(Integer id) throws SQLException {
 
