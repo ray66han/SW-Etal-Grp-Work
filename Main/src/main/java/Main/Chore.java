@@ -1,6 +1,7 @@
 package Main;
 
 public class Chore {
+
     Integer id;
     String name;
     String status;
@@ -9,12 +10,12 @@ public class Chore {
     Integer time;
 
     /**
-     * @param id          The ID of the chore
-     * @param name        The name/desc of the chore.
-     * @param status      Current status, E.g Not Done, Doing, Done
-     * @param reoccuring  Is this chore reoccuring? E.g weekly
+     * @param id The ID of the chore
+     * @param name The name/desc of the chore.
+     * @param status Current status, E.g Not Done, Doing, Done
+     * @param reoccuring Is this chore reoccuring? E.g weekly
      * @param assigned_to Who is completing this chore?
-     * @param time        Overral time estimate of this chore.
+     * @param time Overrall time estimate of this chore.
      */
     public Chore(Integer id, String name, String status, Boolean reoccuring, Integer time, String assigned_to) {
         this.id = id;
@@ -24,8 +25,6 @@ public class Chore {
         this.assigned_to = assigned_to;
         this.time = time;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -75,4 +74,3 @@ public class Chore {
         this.time = time;
     }
 }
-
