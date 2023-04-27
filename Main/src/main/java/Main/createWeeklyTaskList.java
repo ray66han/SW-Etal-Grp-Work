@@ -1,5 +1,8 @@
 package Main;
 
+import java.util.ArrayList;
+import org.Database.DatabaseFunctions;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -202,7 +205,9 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
-        // TODO add your handling code here:
+        DatabaseFunctions Database = new DatabaseFunctions();
+        ArrayList<Chore> list = Database.GET_FULL_CHORE_LIST();
+        System.out.println(list);
     }//GEN-LAST:event_btnCreateListActionPerformed
 
     public void insertChore(String n, String d, String s){
