@@ -168,8 +168,47 @@ public class DatabaseFunctions {
         }
     }
 
-    //    public ArrayList<Chore> GET_THIS_WEEK_CHORE_LIST() {}
-//    public ArrayList<Chore> GET_LAST_WEEK_CHORE_LIST() {}
+    public ArrayList<Chore> GET_THIS_WEEK_CHORE_LIST() {
+        String query = "SELECT chore_id, chore_name, status_desc, chore_reoccuring, chore_time, user_name FROM Chores\n" +
+                "               left JOIN users u on u.user_id = chores.chore_assigned_to\n" +
+                "                JOIN chore_status cs on cs.status_id = chores.chore_status\n" +
+                "                WHERE chore_created >= date('now', 'weekday 5', '-7 days') AND chore_created <  date('now')";
+        Chore chore;
+        ArrayList<Chore> list = new ArrayList<Chore>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5), rs.getString(6));
+                list.add(chore);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Chore> GET_LAST_WEEK_FINISHED_CHORE_LIST() {
+        String query = "SELECT chore_id, user_name, chore_name, status_desc, chore_time, chore_created, chore_reoccuring FROM Chores\n" +
+                "               left JOIN users u on u.user_id = chores.chore_assigned_to\n" +
+                "                JOIN chore_status cs on cs.status_id = chores.chore_status\n" +
+                "                WHERE chore_created >= date('now', 'weekday 5', '-14 days') AND chore_created < date('now', 'weekday 5', '-7 days') AND chore_status = 2;";
+        Chore chore;
+        ArrayList<Chore> list = new ArrayList<Chore>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                chore = new Chore(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5), rs.getString(6));
+                list.add(chore);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public Integer GET_USER_TOTAL_CHORES(User user) throws SQLException {
         String query = "SELECT COUNT(*) chore_assigned_to FROM chores WHERE chore_assigned_to = ?;";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
