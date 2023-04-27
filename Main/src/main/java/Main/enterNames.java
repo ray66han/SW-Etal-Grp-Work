@@ -1,8 +1,5 @@
 package Main;
 
-
-import Main.createWeeklyTaskList;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
@@ -16,6 +13,8 @@ public class enterNames extends javax.swing.JDialog {
     createWeeklyTaskList parent;
     /**
      * Creates new form enterNamesDialogue
+     * @param parent
+     * @param modal
      */
     public enterNames(createWeeklyTaskList parent, boolean modal) {
         super(parent, modal);
@@ -162,8 +161,9 @@ public class enterNames extends javax.swing.JDialog {
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                enterNames dialog = new enterNames(new javax.swing.JFrame(), true);
+                enterNames dialog = new enterNames((createWeeklyTaskList) new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
