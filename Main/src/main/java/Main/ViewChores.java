@@ -4,12 +4,16 @@
  */
 package Main;
 
-import java.sql.*;
-import javax.swing.JComboBox;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.DefaultCellEditor;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author usercc
