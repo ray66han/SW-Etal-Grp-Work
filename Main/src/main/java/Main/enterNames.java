@@ -10,13 +10,13 @@ package Main;
  * @author w20003032
  */
 public class enterNames extends javax.swing.JDialog {
-    createWeeklyTaskList parent;
+    createList parent;
     /**
      * Creates new form enterNamesDialogue
      * @param parent
      * @param modal
      */
-    public enterNames(createWeeklyTaskList parent, boolean modal) {
+    public enterNames(createList parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.parent = parent;
@@ -163,7 +163,7 @@ public class enterNames extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                enterNames dialog = new enterNames((createWeeklyTaskList) new javax.swing.JFrame(), true);
+                enterNames dialog = new enterNames((createList) new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

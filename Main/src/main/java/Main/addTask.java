@@ -10,13 +10,13 @@ package Main;
  * @author w20003032
  */
 public class addTask extends javax.swing.JDialog {
-    createWeeklyTaskList parent;
+    createList parent;
     /**
      * Creates new form addTaskDialogue
      * @param parent
      * @param modal
      */
-    public addTask(createWeeklyTaskList parent, boolean modal) {
+    public addTask(createList parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.parent = parent;
@@ -182,7 +182,7 @@ public class addTask extends javax.swing.JDialog {
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(() -> {
-            addTask dialog = new addTask((createWeeklyTaskList) new javax.swing.JFrame(), true);
+            addTask dialog = new addTask((createList) new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {
