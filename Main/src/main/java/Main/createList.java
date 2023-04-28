@@ -114,7 +114,7 @@ public class createList extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Task Name", "Description", "User 1 est", "User 2 est", "Status"
+                "Task No.", "Description", "User 1 est", "User 2 est", "Status"
             }
         ));
         spList.setViewportView(createChoresListTable);
