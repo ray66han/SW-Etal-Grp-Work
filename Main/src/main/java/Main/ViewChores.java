@@ -36,9 +36,6 @@ public class ViewChores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnHome = new javax.swing.JButton();
-        btnCreateList = new javax.swing.JButton();
-        btnViewList = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         viewTaskTableOne = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -47,33 +44,15 @@ public class ViewChores extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         notDoneAlertBtn = new javax.swing.JButton();
         viewLatestTask = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         btnAchievement = new javax.swing.JButton();
+        btnCreateList = new javax.swing.JButton();
+        btnViewList = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-        });
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-
-        btnCreateList.setText("Create List");
-        btnCreateList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateListActionPerformed(evt);
-            }
-        });
-
-        btnViewList.setText("View List");
-        btnViewList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewListActionPerformed(evt);
             }
         });
 
@@ -157,10 +136,33 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
+        btnHome.setText("Home");
+        btnHome.setMaximumSize(new java.awt.Dimension(75, 22));
+        btnHome.setMinimumSize(new java.awt.Dimension(75, 22));
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+
         btnAchievement.setText("Achievement");
         btnAchievement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAchievementActionPerformed(evt);
+            }
+        });
+
+        btnCreateList.setText("Create List");
+        btnCreateList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateListActionPerformed(evt);
+            }
+        });
+
+        btnViewList.setText("View List");
+        btnViewList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewListActionPerformed(evt);
             }
         });
 
@@ -172,7 +174,7 @@ public class ViewChores extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnHome)
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCreateList)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -203,10 +205,11 @@ public class ViewChores extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(notDoneAlertBtn)
-                    .addComponent(btnHome)
-                    .addComponent(btnCreateList)
-                    .addComponent(btnViewList)
-                    .addComponent(btnAchievement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCreateList)
+                        .addComponent(btnViewList)
+                        .addComponent(btnAchievement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -222,16 +225,6 @@ public class ViewChores extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        homePage x = new homePage();
-        x.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateListActionPerformed
 
     private void notDoneAlertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notDoneAlertBtnActionPerformed
         // TODO add your handling code here:
@@ -273,12 +266,26 @@ public class ViewChores extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_viewTaskTableOneVetoableChange
 
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        homePage x = new homePage();
+        x.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnHomeActionPerformed
+
     private void btnAchievementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAchievementActionPerformed
-        // TODO add your handling code here:
+        //ADD CODE HERE
     }//GEN-LAST:event_btnAchievementActionPerformed
 
+    private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
+        createList x = new createList();
+        x.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCreateListActionPerformed
+
     private void btnViewListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewListActionPerformed
-        // TODO add your handling code here:
+        ViewChores x = new ViewChores();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnViewListActionPerformed
 
     

@@ -173,6 +173,11 @@ public class homePage extends javax.swing.JFrame {
         });
 
         btnViewList.setText("View List");
+        btnViewList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewListActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,13 +256,20 @@ public class homePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnAchievementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAchievementActionPerformed
-        // TODO add your handling code here:
+        //ADD CODE HERE
     }//GEN-LAST:event_btnAchievementActionPerformed
 
     private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
         createList x = new createList();
         x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCreateListActionPerformed
+
+    private void btnViewListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewListActionPerformed
+        ViewChores x = new ViewChores();
+        x.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnViewListActionPerformed
 
     /**
      * @param args the command line arguments

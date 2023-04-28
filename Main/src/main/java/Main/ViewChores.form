@@ -69,10 +69,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="notDoneAlertBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCreateList" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnViewList" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAchievement" alignment="3" max="32767" attributes="0"/>
+                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Component id="btnHome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCreateList" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnViewList" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAchievement" alignment="3" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="62" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -91,30 +93,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnHome">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Home"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHomeActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnCreateList">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Create List"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateListActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnViewList">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="View List"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewListActionPerformed"/>
-      </Events>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -254,12 +232,42 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewLatestTaskActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JButton" name="btnHome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Home"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[75, 22]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[75, 22]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHomeActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="btnAchievement">
       <Properties>
         <Property name="text" type="java.lang.String" value="Achievement"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAchievementActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCreateList">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Create List"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateListActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnViewList">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View List"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewListActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
