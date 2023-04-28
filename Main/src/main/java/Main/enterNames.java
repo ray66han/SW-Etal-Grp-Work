@@ -1,5 +1,9 @@
 package Main;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
@@ -123,8 +127,12 @@ public class enterNames extends javax.swing.JDialog {
     }//GEN-LAST:event_txtName2ActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        parent.insertNames(txtName1.getText(), txtName2.getText());
-        this.dispose();
+        try {
+            parent.insertNames(txtName1.getText(), txtName2.getText());
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(enterNames.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
