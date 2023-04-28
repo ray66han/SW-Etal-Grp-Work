@@ -216,7 +216,9 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
     private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
         DatabaseFunctions Database = new DatabaseFunctions();
         ArrayList<Chore> list = Database.GET_FULL_CHORE_LIST();
-        System.out.println(list);
+        for (Chore c:list){
+        System.out.println(c.getName());
+        }
     }//GEN-LAST:event_btnCreateListActionPerformed
 
     public void insertChore(String n, String d, String s){
