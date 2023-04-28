@@ -14,7 +14,7 @@ public class DatabaseConnection {
      * @return conn Returns the connection to the database.
      */
     public Connection Connect() {
-        String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "/database/database.db";
+        String url = "jdbc:sqlite:C:\\Users\\w20003032\\Documents\\GitHub\\SW-Etal-Grp-Work\\database\\database.db";
         try {
             connection = DriverManager.getConnection(url);
             System.out.println("[DATABASE]: Connection to (" + url + ") has been successfully established.");

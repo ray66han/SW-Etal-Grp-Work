@@ -113,9 +113,6 @@ public class ViewChores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(viewTaskTableOne);
         viewTaskTableOne.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (viewTaskTableOne.getColumnModel().getColumnCount() > 0) {
-            viewTaskTableOne.getColumnModel().getColumn(4).setCellEditor(null);
-        }
 
         viewTaskTableTwo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
