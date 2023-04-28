@@ -1,5 +1,6 @@
 package Main;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import org.Database.DatabaseFunctions;
 
@@ -239,7 +240,9 @@ public class createList extends javax.swing.JFrame {
 
     private void btnPullListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPullListActionPerformed
         DatabaseFunctions Database = new DatabaseFunctions();
+        
         ArrayList<Chore> list = Database.GET_FULL_CHORE_LIST();
+        
         for (Chore c:list){
         System.out.println(c.getName());
         }
@@ -251,9 +254,15 @@ public class createList extends javax.swing.JFrame {
     System.out.println(s);
     }
     
-    public void insertNames(String n1, String n2){
-    System.out.println(n1);
-    System.out.println(n2);     //these will need to update in the list and in the db
+    
+    public void insertNames(String n1, String n2) throws SQLException{
+        DatabaseFunctions Database = new DatabaseFunctions();
+        
+        Database.CREATE_USER(n1);
+        System.out.println("added "+n1+" to the database");
+        
+        Database.CREATE_USER(n1);
+        System.out.println("added "+n2+" to the database");
     }
     
     
