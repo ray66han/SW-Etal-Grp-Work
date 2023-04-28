@@ -27,14 +27,48 @@ public class StatisticsJFC extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 99, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 99, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 99, Short.MAX_VALUE)
+        );
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -43,46 +77,12 @@ public class StatisticsJFC extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton1)
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-
         jButton2.setText("jButton1");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton2)
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
 
         jButton3.setText("jButton1");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -91,45 +91,46 @@ public class StatisticsJFC extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton3)
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(280, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jButton3)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton2)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(jLabel1)))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(11, 11, 11)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(49, 49, 49))
         );
 
         pack();
@@ -186,6 +187,7 @@ public class StatisticsJFC extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -195,58 +197,58 @@ public class StatisticsJFC extends javax.swing.JFrame {
 
 
 
-public class Statistics {
-
-    //after selecting a button -> events -> actions -> action performer
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-
-        //need to connect to the DB.
-        DefultPieDateset pieDataset = new DefultPieDateset();
-        pieDataset.setValue("One", new Integer(10));
-        pieDataset.setValue("Two", new Integer(20));
-        pieDataset.setValue("Three", new Integer(30));
-        pieDataset.setValue("Four", new Integer(40));
-
-        JFreeChart chart = ChartFactory.createPieChart("Pie Chart", pieDataset, true, true, true);
-        PiePlot p = (PiePlot) chart.getPlot();
-        ChartFrame frame = new ChartFrame("Pie Chart", chart);
-        frame.setVisible(true);
-        frame.setSize(450, 500);
-    }
-
-    //after selecting a button -> events -> actions -> action performer
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-
-        //need to connect to the DB.
-        DefultPieDateset pieDataset = new DefultPieDateset();
-        pieDataset.setValue("One", new Integer(10));
-        pieDataset.setValue("Two", new Integer(20));
-        pieDataset.setValue("Three", new Integer(30));
-        pieDataset.setValue("Four", new Integer(40));
-
-        JFreeChart chart = ChartFactory.createPieChart3D("Pie Chart", pieDataset, true, true, true);
-        PiePlot3D p = (PiePlot3D) chart.getPlot();
-        ChartFrame frame = new ChartFrame("Pie Chart", chart);
-        frame.setVisible(true);
-        frame.setSize(450, 500);
-    }
-
-    //after selecting a button -> events -> actions -> action performer
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-
-        //need to connect to the DB.
-        DefultCategoryDateset pieDataset = new DefultCategoryDateset();
-        dataset.setValue(80, "Marks", "Student1");
-        dataset.setValue(90, "Marks", "Student1");
-        dataset.setValue(60, "Marks", "Student1");
-        dataset.setValue(70, "Marks", "Student1");
-
-        JFreeChart chart = ChartFactory.createBarChart("Pie Chart", pieDataset, true, true, true);
-        CategoryPlot p = chart.getCategoryPlot();
-        p.setRangeGridlinePaint(Color.black);
-        ChartFrame frame = new ChartFrame("Bar Chart for Student Marks", chart);
-        frame.setVisible(true);
-        frame.setSize(450, 500);
-    }
-
-}
+//public class Statistics {
+//
+//    //after selecting a button -> events -> actions -> action performer
+//    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+//
+//        //need to connect to the DB.
+//        DefultPieDateset pieDataset = new DefultPieDateset();
+//        pieDataset.setValue("One", new Integer(10));
+//        pieDataset.setValue("Two", new Integer(20));
+//        pieDataset.setValue("Three", new Integer(30));
+//        pieDataset.setValue("Four", new Integer(40));
+//
+//        JFreeChart chart = ChartFactory.createPieChart("Pie Chart", pieDataset, true, true, true);
+//        PiePlot p = (PiePlot) chart.getPlot();
+//        ChartFrame frame = new ChartFrame("Pie Chart", chart);
+//        frame.setVisible(true);
+//        frame.setSize(450, 500);
+//    }
+//
+//    //after selecting a button -> events -> actions -> action performer
+//    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+//
+//        //need to connect to the DB.
+//        DefultPieDateset pieDataset = new DefultPieDateset();
+//        pieDataset.setValue("One", new Integer(10));
+//        pieDataset.setValue("Two", new Integer(20));
+//        pieDataset.setValue("Three", new Integer(30));
+//        pieDataset.setValue("Four", new Integer(40));
+//
+//        JFreeChart chart = ChartFactory.createPieChart3D("Pie Chart", pieDataset, true, true, true);
+//        PiePlot3D p = (PiePlot3D) chart.getPlot();
+//        ChartFrame frame = new ChartFrame("Pie Chart", chart);
+//        frame.setVisible(true);
+//        frame.setSize(450, 500);
+//    }
+//
+//    //after selecting a button -> events -> actions -> action performer
+//    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+//
+//        //need to connect to the DB.
+//        DefultCategoryDateset pieDataset = new DefultCategoryDateset();
+//        dataset.setValue(80, "Marks", "Student1");
+//        dataset.setValue(90, "Marks", "Student1");
+//        dataset.setValue(60, "Marks", "Student1");
+//        dataset.setValue(70, "Marks", "Student1");
+//
+//        JFreeChart chart = ChartFactory.createBarChart("Pie Chart", pieDataset, true, true, true);
+//        CategoryPlot p = chart.getCategoryPlot();
+//        p.setRangeGridlinePaint(Color.black);
+//        ChartFrame frame = new ChartFrame("Bar Chart for Student Marks", chart);
+//        frame.setVisible(true);
+//        frame.setSize(450, 500);
+//    }
+//
+//}
