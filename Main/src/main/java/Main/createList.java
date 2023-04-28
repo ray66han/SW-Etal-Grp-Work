@@ -272,7 +272,9 @@ public class createList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPushListActionPerformed
 
     private void btnAchievementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAchievementActionPerformed
-        //ADD CODE HERE
+        achievements x = new achievements();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAchievementActionPerformed
 
     private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
