@@ -94,6 +94,11 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
         });
 
         btnAchievement.setText("Achievement");
+        btnAchievement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAchievementActionPerformed(evt);
+            }
+        });
 
         lblCreateList.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblCreateList.setText("Weekly Task List");
@@ -123,6 +128,11 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
         btnGenList.setText("Push List");
         btnGenList.setMaximumSize(new java.awt.Dimension(80, 22));
         btnGenList.setMinimumSize(new java.awt.Dimension(80, 22));
+        btnGenList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenListActionPerformed(evt);
+            }
+        });
 
         btnAddNames.setText("Add Names");
         btnAddNames.setMaximumSize(new java.awt.Dimension(80, 22));
@@ -187,21 +197,20 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //REDUNDANT-Can't remove
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void notDoneAlertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notDoneAlertBtnActionPerformed
-        // TODO add your handling code here:
+        //REDUNDANT-Can't remove
         
     }//GEN-LAST:event_notDoneAlertBtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //REDUNDANT-Can't remove
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        
-// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnCreateListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateListActionPerformed
@@ -231,6 +240,14 @@ public class createWeeklyTaskList extends javax.swing.JFrame {
         enterNames x = new enterNames(this, true);
         x.setVisible(true);
     }//GEN-LAST:event_btnAddNamesActionPerformed
+
+    private void btnGenListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenListActionPerformed
+
+    private void btnAchievementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAchievementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAchievementActionPerformed
 
     /**
      * @param args the command line arguments
