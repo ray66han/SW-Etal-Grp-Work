@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Main.Chore;
-import Main.User;n;
+import Main.User;
 import java.util.ArrayList;
 
 import Main.Chore;
