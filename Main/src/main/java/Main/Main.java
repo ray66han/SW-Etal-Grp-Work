@@ -8,15 +8,14 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-
         // Example code showing how to interact with database.
+
         DatabaseFunctions Database = new DatabaseFunctions(); // Create a database object we can use to interact with.
+        ArrayList<Chore> list = Database.GET_LAST_WEEK_FINISHED_CHORE_LIST(); // Get data from database
 
-        ArrayList<Chore> list = Database.GET_FULL_CHORE_LIST(); // Get a full chore list, excluding dates. Returns as ArrayList
-
-        for (Chore chore : list) { // Loop over the chore arraylist
-            System.out.println("Chore Desc (" + chore.name + ") is currently assigned to: " + chore.assigned_to + "with status of " + chore.status);
+        for (final Chore chore : list) { // Loop over ArrayList
+            System.out.println(chore.name + " has been completed last week by " + chore.assigned_to); // Example of using the data
         }
-
     }
 }
+

@@ -5,14 +5,17 @@
 package Main;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
+
+import org.Database.DatabaseConnection;
+import org.Database.DatabaseFunctions;
 
 /**
  *
@@ -36,6 +39,7 @@ public class ViewChores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -49,6 +53,8 @@ public class ViewChores extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         notDoneAlertBtn = new javax.swing.JButton();
         viewLatestTask = new javax.swing.JButton();
+
+        jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -72,8 +78,18 @@ public class ViewChores extends javax.swing.JFrame {
         });
 
         jButton3.setText("View Task");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Achivement");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("View Task");
 
@@ -82,14 +98,14 @@ public class ViewChores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Task", "Description", "User-01 Task", "User-02 Task", "Changing Status"
+                "ID", "Name", "User", "Changing Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -113,23 +129,20 @@ public class ViewChores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(viewTaskTableOne);
         viewTaskTableOne.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (viewTaskTableOne.getColumnModel().getColumnCount() > 0) {
-            viewTaskTableOne.getColumnModel().getColumn(4).setCellEditor(null);
-        }
 
         viewTaskTableTwo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Task", "Description", "User-01 Task", "User-02 Task", "Changing Status"
+                "ID", "Name", "User", "Changing Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -228,21 +241,29 @@ public class ViewChores extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        homePage home = new homePage();
+        home.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        createList makeList = new createList();
+        makeList.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void notDoneAlertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notDoneAlertBtnActionPerformed
         // TODO add your handling code here:
-        showAlertLate();
+        ViewChores viewChoresList = new ViewChores();
+        viewChoresList.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_notDoneAlertBtnActionPerformed
 
     private void viewLatestTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLatestTaskActionPerformed
         // TODO add your handling code here:
-        sendQuery("SELECT * FROM chores Where chore_date >= date('now', 'weekday 5', '-7 days')", "One");
-        sendQuery("SELECT * FROM chores Where chore_status = 0 and chore_date <= date('now', 'weekday 5', '-7 days') and chore_date >= date('now', 'weekday 5', '-14 days')", "Two");
+        sendQuery("SELECT * FROM chores Where date(chore_created) >= date('now', '-7 days')", "One");
+        sendQuery("SELECT * FROM chores Where chore_status = 1 and date(chore_created) <= date('now', '-7 days') and date(chore_created) >= date('now', '-14 days')", "Two");
     }//GEN-LAST:event_viewLatestTaskActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -250,8 +271,8 @@ public class ViewChores extends javax.swing.JFrame {
         
         showAlertLate();
         DefaultTableModel model = (DefaultTableModel)viewTaskTableOne.getModel();
-        sendQuery("SELECT * FROM chores Where chore_date >= date('now', 'weekday 5', '-7 days')", "One");
-        sendQuery("SELECT * FROM chores Where chore_status = 0 and chore_date <= date('now', 'weekday 5', '-7 days') and chore_date >= date('now', 'weekday 5', '-14 days')", "Two");
+        sendQuery("SELECT * FROM chores Where date(chore_created) >= date('now', '-7 days')", "One");
+        sendQuery("SELECT * FROM chores Where chore_status = 1 and date(chore_created) <= date('now', '-7 days') and date(chore_created) >= date('now', '-14 days')", "Two");
         viewTaskTableOne.getModel().addTableModelListener(ev -> {
             if (ev.getType() == TableModelEvent.UPDATE)
             {
@@ -259,9 +280,11 @@ public class ViewChores extends javax.swing.JFrame {
                 int column = ev.getColumn();
                 String result = viewTaskTableOne.getModel().getValueAt(row, column).toString();
                 String task = viewTaskTableOne.getModel().getValueAt(row, 0).toString();
-                String setValue = (result == "true") ? "0" : "1";
+                String setValue = (result == "true") ? "1" : "0";
                 System.out.println(result + " - " + task + " - " + setValue);
-                sendQuery("UPDATE chores SET chore_status = " + setValue + " WHERE chore_name = '" + task + "'", "None");
+                Chore c = new Chore(Integer.parseInt(task), task, "0", false, 1, "1");
+                DatabaseFunctions df = new DatabaseFunctions();
+                df.SET_CHORE_STATUS(c, Integer.parseInt(setValue));
             }
         });
     }//GEN-LAST:event_formWindowOpened
@@ -273,6 +296,20 @@ public class ViewChores extends javax.swing.JFrame {
     private void viewTaskTableOneVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_viewTaskTableOneVetoableChange
         // TODO add your handling code here:
     }//GEN-LAST:event_viewTaskTableOneVetoableChange
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        achievements gamification = new achievements();
+        gamification.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ViewChores viewChoresList = new ViewChores();
+        viewChoresList.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
     /**
@@ -316,18 +353,18 @@ public class ViewChores extends javax.swing.JFrame {
         Connection conn = null;
 
         try {
-            // db parameters
-            String url = "jdbc:sqlite:./etal.db";
             // create a connection to the database
-            conn = DriverManager.getConnection(url);
+            DatabaseFunctions df = new DatabaseFunctions();
+            DatabaseConnection dc = new DatabaseConnection();
+            conn = dc.Connect();
              // Execute a query
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM chores Where chore_status != 0 and chore_date >= date('now', 'weekday 5', '-7 days')");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM chores Where chore_status = 0 and date(chore_created) >= date('now', '-7 days')");
 
             String toShow = "";
             // Retrieve data from the result set
             while (rs.next()) {
-                toShow += rs.getString("chore_name") + " - " + (rs.getBoolean("chore_second_user") ? "User 2" : "User 1") + "\n";
+                toShow += df.GET_USER_WITH_ID(rs.getInt("chore_assigned_to")).name + " - " + rs.getString("chore_name") + "\n";
             }
             JOptionPane.showMessageDialog(null, toShow, "Chores not done", JOptionPane.WARNING_MESSAGE);
 
@@ -354,11 +391,14 @@ public class ViewChores extends javax.swing.JFrame {
         Connection conn = null;
 
         try {
-            // db parameters
-            String url = "jdbc:sqlite:./etal.db";
+            DatabaseFunctions df = new DatabaseFunctions();
+
             // create a connection to the database
-            conn = DriverManager.getConnection(url);
-             // Execute a query
+            DatabaseConnection dc = new DatabaseConnection();
+            conn = dc.Connect();
+       
+            
+            // Execute a query
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -368,12 +408,19 @@ public class ViewChores extends javax.swing.JFrame {
                 DefaultTableModel model = (DefaultTableModel)viewTaskTableOne.getModel();
                 model.setRowCount(0);
                 viewTaskTableOne.repaint();
-
+                
+                ResultSetMetaData metaData = rs.getMetaData();
+                int columnCount = metaData.getColumnCount();
+                for (int i = 1; i <= columnCount; i++) {
+                    System.out.println(metaData.getCatalogName(i));
+                }
                 // Retrieve data from the result set
                 while (rs.next()) {
-                    model.addRow(new Object[]{rs.getString("chore_name"),
-                    rs.getString("chore_desc"),(rs.getBoolean("chore_first_user") ? "Yes" : "No"),
-                    (rs.getBoolean("chore_second_user") ? "Yes" : "No"),(rs.getInt("chore_status") == 0 ? true : false)});
+//                    model.addRow(new Object[]{rs.getString("chore_name"),
+//                    rs.getString("chore_desc"),"Yes",(rs.getInt("chore_status") == 0 ? true : false)});
+                    
+                    model.addRow(new Object[]{rs.getString("chore_id"),rs.getString("chore_name"),
+                        df.GET_USER_WITH_ID(rs.getInt("chore_assigned_to")).name,(rs.getInt("chore_status") == 1 ? true : false)});
                 }
             }
             else if (tableName == "Two") {
@@ -384,9 +431,8 @@ public class ViewChores extends javax.swing.JFrame {
 
                 // Retrieve data from the result set
                 while (rs.next()) {
-                    model.addRow(new Object[]{rs.getString("chore_name"),
-                    rs.getString("chore_desc"),(rs.getBoolean("chore_first_user") ? "Yes" : "No"),
-                    (rs.getBoolean("chore_second_user") ? "Yes" : "No"),(rs.getInt("chore_status") == 0 ? true : false)});
+                     model.addRow(new Object[]{rs.getString("chore_id"),rs.getString("chore_name"),
+                     df.GET_USER_WITH_ID(rs.getInt("chore_assigned_to")).name,(rs.getInt("chore_status") == 1 ? true : false)});
                 }
             }
             // Close the result set, statement, and connection
@@ -417,6 +463,7 @@ public class ViewChores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton notDoneAlertBtn;
     private javax.swing.JButton viewLatestTask;
     private javax.swing.JTable viewTaskTableOne;

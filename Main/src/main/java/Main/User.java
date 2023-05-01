@@ -4,6 +4,24 @@ public class User {
     Integer id;
     String name;
     Integer points;
+    Integer totalChores;
+    Integer completedChores;
+
+    public Integer getTotalChores() {
+        return totalChores;
+    }
+
+    public void setTotalChores(Integer totalChores) {
+        this.totalChores = totalChores;
+    }
+
+    public Integer getCompletedChores() {
+        return completedChores;
+    }
+
+    public void setCompletedChores(Integer completedChores) {
+        this.completedChores = completedChores;
+    }
 
     public Integer getId() {
         return id;
@@ -29,12 +47,11 @@ public class User {
         this.points = points;
     }
 
-    public User(Integer id, String name, Integer points) {
+    public User(Integer id, String name, Integer points, Integer totalChores, Integer completedChores) {
         this.id = id;
         this.name = name;
         this.points = points;
-
-
-
+        this.totalChores = totalChores;
+        this.completedChores = completedChores;
     }
 }
