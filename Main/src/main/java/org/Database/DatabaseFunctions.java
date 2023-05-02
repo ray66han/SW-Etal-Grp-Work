@@ -229,7 +229,6 @@ public class DatabaseFunctions {
         }
     }
 
-
     public Integer GET_USER_TOTAL_CHORES_COUNT(User user) throws SQLException {
         String query = "SELECT COUNT(*) chore_assigned_to FROM chores WHERE chore_assigned_to = ?;";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -283,6 +282,22 @@ public class DatabaseFunctions {
         }
     }
 
+    // This function done for group work regarding the achivement
+     public int GET_LAST_MONTH_FINISHED_CHORE_LIST(User u) {
+        String query = "SELECT COUNT(*) FROM Chores\n" +
+                "               left JOIN users u on u.user_id = chores.chore_assigned_to\n" +
+                "                JOIN chore_status cs on cs.status_id = chores.chore_status\n" +
+                "                WHERE date(chore_created) >= date('now', '-30 days') AND chore_assigned_to = ?;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, u.getId());
+            ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+     
     public Integer GET_USER_COMPLETED_CHORES_COUNT(User user) throws SQLException {
         String query = "SELECT COUNT(*) chore_assigned_to FROM chores WHERE chore_assigned_to = ? AND chore_status = 2;";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {

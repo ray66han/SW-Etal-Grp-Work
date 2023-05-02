@@ -1,5 +1,9 @@
 package Main;
 
+import java.util.ArrayList;
+import java.util.Random;
+import org.Database.DatabaseFunctions;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -44,6 +48,11 @@ public class achievements extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(176, 208, 211));
@@ -225,6 +234,77 @@ public class achievements extends javax.swing.JFrame {
         gamification.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private String randomFeedBackMessage()
+    {
+        ArrayList<String> feedbackList = new ArrayList<>();
+        
+        feedbackList.add("Well done!");
+        feedbackList.add("Great job!");
+        feedbackList.add("Excellent work!");
+        feedbackList.add("Keep up the good work!");
+        feedbackList.add("You're doing great!");
+        feedbackList.add("Fantastic!");
+        feedbackList.add("Awesome!");
+        feedbackList.add("Superb!");
+        feedbackList.add("Bravo!");
+        feedbackList.add("Impressive!");
+        
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(feedbackList.size());
+        String randomFeedback = feedbackList.get(randomIndex);
+        return randomFeedback;
+    }
+    
+    public static String getLeague(int levelsCompleted) {
+        int levelRemainder = levelsCompleted / 5;
+        switch (levelRemainder) {
+            case 0:
+                return "Bronze";
+            case 1:
+                return "Silver";
+            case 2:
+                return "Gold";
+            default:
+                return "Diamond";
+        }
+    }
+    
+    private void setLevelAndLeague()
+    {
+        DatabaseFunctions df = new DatabaseFunctions();
+        int userOneLevel = 0;
+        int userTwoLevel = 0;
+        try {
+            User userOne = df.GET_USER_WITH_ID(0);
+            User userTwo = df.GET_USER_WITH_ID(1);
+            userOneLevel = df.GET_LAST_MONTH_FINISHED_CHORE_LIST(userOne);
+            userTwoLevel = df.GET_LAST_MONTH_FINISHED_CHORE_LIST(userTwo);
+        } catch (Exception e) {
+        }
+        jTextArea3.setText("Level: " + userOneLevel + "\nMessage: " + randomFeedBackMessage() + "\nLeague: " + getLeague(userOneLevel));
+        jTextArea1.setText("Level: " + userTwoLevel + "\nMessage: " + randomFeedBackMessage() + "\nLeague: " + getLeague(userTwoLevel));
+        
+    }
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        int userOneID = 0, userTwoID = 0;
+        String userOneName = "", userTwoName = "";
+        DatabaseFunctions df = new DatabaseFunctions();
+        try {
+            User userOne = df.GET_USER_WITH_ID(0);
+            User userTwo = df.GET_USER_WITH_ID(1);
+            userOneID = userOne.getId();
+            userOneName = userOne.getName();
+            userTwoID = userTwo.getId();
+            userTwoName = userTwo.getName();
+        } catch (Exception e) {
+        }
+        jLabel2.setText(userOneName + "' Level:");
+        jLabel3.setText(userTwoName + "' Level:");
+        setLevelAndLeague();
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

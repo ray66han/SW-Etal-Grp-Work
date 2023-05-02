@@ -127,14 +127,14 @@ public class ViewChores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "User", "Changing Status"
+                "Name", "User", "Changing Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -167,14 +167,14 @@ public class ViewChores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "User", "Changing Status"
+                "Name", "User", "Changing Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -413,7 +413,7 @@ public class ViewChores extends javax.swing.JFrame {
         viewTaskTableOne.repaint();
 
         for (Chore chore : gtwc) {
-            model.addRow(new Object[]{chore.getId(),chore.getName(),
+            model.addRow(new Object[]{chore.getName(),
             chore.getAssigned_to(),("Completed".equals(chore.status))});
         }
     }
@@ -428,7 +428,7 @@ public class ViewChores extends javax.swing.JFrame {
         viewTaskTableTwo.repaint();
 
         for (Chore chore : gtwc) {
-            model.addRow(new Object[]{chore.getId(),chore.getStatus(),
+            model.addRow(new Object[]{chore.getStatus(),
             chore.getName(),true});
         }
     }

@@ -52,6 +52,11 @@ public class homePage extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
         jLabel2.setText("General Instructions:");
@@ -377,6 +382,21 @@ public class homePage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        DatabaseFunctions df = new DatabaseFunctions();
+        String userOneName = "N/A", userTwoName = "N/A";
+        try {
+            User userOne = df.GET_USER_WITH_ID(0);
+            User userTwo = df.GET_USER_WITH_ID(1);
+            userOneName = userOne.getName();
+            userTwoName = userTwo.getName();
+        } catch (Exception e) {
+        }
+        jTextField1.setText("User01: " + userOneName);
+        jTextField3.setText("User02: " + userTwoName);
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -403,7 +423,7 @@ public class homePage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(homePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
