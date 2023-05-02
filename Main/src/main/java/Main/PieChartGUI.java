@@ -5,6 +5,7 @@
 package Main;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import org.Database.DatabaseFunctions;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -18,8 +19,19 @@ public class PieChartGUI extends JFrame {
         super(title);
         // Create dataset with initial data
         DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("Not-done Chores", 10);
-        dataset.setValue("Done Chores", 80);
+        DatabaseFunctions df = new DatabaseFunctions();
+        var gtwc = df.GET_THIS_WEEK_CHORE_LIST();
+        int ndc = 0; // ndc = not done chores list
+        var dc = 0; // dc = done chores list
+        for (Chore chore : gtwc) {
+            if ("Completed".equals(chore.status)) {
+                dc++;
+            } else {
+                ndc++;
+            }
+        }
+        dataset.setValue("Not-done Chores", ndc);
+        dataset.setValue("Done Chores", dc);
 //        dataset.setValue("Bananas", 20);
 //        dataset.setValue("Pears", 5);
 

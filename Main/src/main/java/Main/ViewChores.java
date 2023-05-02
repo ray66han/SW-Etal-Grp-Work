@@ -40,6 +40,8 @@ public class ViewChores extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -53,8 +55,16 @@ public class ViewChores extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         notDoneAlertBtn = new javax.swing.JButton();
         viewLatestTask = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         jToolBar1.setRollover(true);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("This system enables the creation of a weekly list of chores, allows for viewing of the chores, \nprovides the option to mark them as completed and track their progress. \nThe steps for using this system are outlined below:");
+        jScrollPane3.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -63,6 +73,9 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(0, 122, 106));
+        jButton1.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Home");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +83,9 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(0, 122, 106));
+        jButton2.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Create Chores List");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +93,9 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(0, 122, 106));
+        jButton3.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("View Task");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +103,9 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(0, 122, 106));
+        jButton4.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Achivement");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,8 +113,15 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("View Task");
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("PT Serif Caption", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 122, 106));
+        jLabel1.setText("View Chores");
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 153, 153), new java.awt.Color(0, 102, 102), null));
 
+        viewTaskTableOne.setBackground(new java.awt.Color(176, 208, 211));
+        viewTaskTableOne.setFont(new java.awt.Font("PT Sans Caption", 0, 14)); // NOI18N
+        viewTaskTableOne.setForeground(new java.awt.Color(255, 255, 255));
         viewTaskTableOne.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -130,6 +159,9 @@ public class ViewChores extends javax.swing.JFrame {
         jScrollPane1.setViewportView(viewTaskTableOne);
         viewTaskTableOne.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
+        viewTaskTableTwo.setBackground(new java.awt.Color(176, 208, 211));
+        viewTaskTableTwo.setFont(new java.awt.Font("PT Sans Caption", 0, 14)); // NOI18N
+        viewTaskTableTwo.setForeground(new java.awt.Color(255, 255, 255));
         viewTaskTableTwo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -142,7 +174,7 @@ public class ViewChores extends javax.swing.JFrame {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -155,10 +187,15 @@ public class ViewChores extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(viewTaskTableTwo);
 
-        jLabel3.setText("This Week Task List");
+        jLabel3.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        jLabel3.setText("This Week Chores List:");
 
-        jLabel4.setText("Last Week Done Task List");
+        jLabel4.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        jLabel4.setText("Last Week Done Chores List:");
 
+        notDoneAlertBtn.setBackground(new java.awt.Color(214, 40, 40));
+        notDoneAlertBtn.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        notDoneAlertBtn.setForeground(new java.awt.Color(255, 255, 255));
         notDoneAlertBtn.setText("Alert!");
         notDoneAlertBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +203,9 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
+        viewLatestTask.setBackground(new java.awt.Color(0, 122, 106));
+        viewLatestTask.setFont(new java.awt.Font("PT Serif Caption", 1, 14)); // NOI18N
+        viewLatestTask.setForeground(new java.awt.Color(255, 255, 255));
         viewLatestTask.setText("Refresh");
         viewLatestTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,42 +213,54 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
 
+        jTextArea2.setEditable(false);
+        jTextArea2.setBackground(new java.awt.Color(131, 197, 190));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("PT Sans Caption", 0, 14)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea2.setRows(5);
+        jTextArea2.setText("1. View this week's list of chores here.\n2. Receive alerts for incomplete chores upon opening the app.\n3. Mark chores as done or not done by clicking the checkbox.\n4. Access last week's chore list.\n5. Use the refresh button to see any changes made.\n6. The table displays the chore ID, details, user, and status.");
+        jScrollPane4.setViewportView(jTextArea2);
+
+        jLabel2.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
+        jLabel2.setText("Instructions:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(198, 198, 198)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(notDoneAlertBtn))
-            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(viewLatestTask))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(176, 176, 176))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jButton4))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))))
-                .addContainerGap())
+                        .addComponent(jLabel1)
+                        .addGap(137, 137, 137)
+                        .addComponent(notDoneAlertBtn)))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,22 +269,26 @@ public class ViewChores extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(notDoneAlertBtn))
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(viewLatestTask))
+                .addGap(7, 7, 7)
+                .addComponent(jLabel2)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(viewLatestTask)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -262,17 +318,17 @@ public class ViewChores extends javax.swing.JFrame {
 
     private void viewLatestTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLatestTaskActionPerformed
         // TODO add your handling code here:
-        sendQuery("SELECT * FROM chores Where date(chore_created) >= date('now', '-7 days')", "One");
-        sendQuery("SELECT * FROM chores Where chore_status = 1 and date(chore_created) <= date('now', '-7 days') and date(chore_created) >= date('now', '-14 days')", "Two");
+        setTableOne();
+        setTableTwo();
     }//GEN-LAST:event_viewLatestTaskActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
         showAlertLate();
-        DefaultTableModel model = (DefaultTableModel)viewTaskTableOne.getModel();
-        sendQuery("SELECT * FROM chores Where date(chore_created) >= date('now', '-7 days')", "One");
-        sendQuery("SELECT * FROM chores Where chore_status = 1 and date(chore_created) <= date('now', '-7 days') and date(chore_created) >= date('now', '-14 days')", "Two");
+        setTableOne();
+        setTableTwo();
+        DatabaseFunctions df = new DatabaseFunctions();
         viewTaskTableOne.getModel().addTableModelListener(ev -> {
             if (ev.getType() == TableModelEvent.UPDATE)
             {
@@ -283,8 +339,7 @@ public class ViewChores extends javax.swing.JFrame {
                 String setValue = (result == "true") ? "1" : "0";
                 System.out.println(result + " - " + task + " - " + setValue);
                 Chore c = new Chore(Integer.parseInt(task), task, "0", false, 1, "1");
-                DatabaseFunctions df = new DatabaseFunctions();
-                df.SET_CHORE_STATUS(c, Integer.parseInt(setValue));
+                df.SET_CHORE_STATUS(c, (setValue == "1") ? 2 : 0);
             }
         });
     }//GEN-LAST:event_formWindowOpened
@@ -348,109 +403,49 @@ public class ViewChores extends javax.swing.JFrame {
         });
     }
 
-    private void showAlertLate()
+    private void setTableOne()
     {
-        Connection conn = null;
+        DatabaseFunctions df = new DatabaseFunctions();
+        var gtwc = df.GET_THIS_WEEK_CHORE_LIST();
 
-        try {
-            // create a connection to the database
-            DatabaseFunctions df = new DatabaseFunctions();
-            DatabaseConnection dc = new DatabaseConnection();
-            conn = dc.Connect();
-             // Execute a query
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM chores Where chore_status = 0 and date(chore_created) >= date('now', '-7 days')");
+        DefaultTableModel model = (DefaultTableModel)viewTaskTableOne.getModel();
+        model.setRowCount(0);
+        viewTaskTableOne.repaint();
 
-            String toShow = "";
-            // Retrieve data from the result set
-            while (rs.next()) {
-                toShow += df.GET_USER_WITH_ID(rs.getInt("chore_assigned_to")).name + " - " + rs.getString("chore_name") + "\n";
-            }
-            JOptionPane.showMessageDialog(null, toShow, "Chores not done", JOptionPane.WARNING_MESSAGE);
-
-            // Close the result set, statement, and connection
-            rs.close();
-            stmt.close();
-            conn.close();
-            
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+        for (Chore chore : gtwc) {
+            model.addRow(new Object[]{chore.getId(),chore.getName(),
+            chore.getAssigned_to(),("Completed".equals(chore.status))});
         }
     }
     
-    private void sendQuery(String query, String tableName)
+     private void setTableTwo()
     {
-        Connection conn = null;
+        DatabaseFunctions df = new DatabaseFunctions();
+        var gtwc = df.GET_LAST_WEEK_FINISHED_CHORE_LIST();
 
-        try {
-            DatabaseFunctions df = new DatabaseFunctions();
+        DefaultTableModel model = (DefaultTableModel)viewTaskTableTwo.getModel();
+        model.setRowCount(0);
+        viewTaskTableTwo.repaint();
 
-            // create a connection to the database
-            DatabaseConnection dc = new DatabaseConnection();
-            conn = dc.Connect();
-       
-            
-            // Execute a query
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-
-            if (tableName == "One")
-            {
-                //Reset Table
-                DefaultTableModel model = (DefaultTableModel)viewTaskTableOne.getModel();
-                model.setRowCount(0);
-                viewTaskTableOne.repaint();
-                
-                ResultSetMetaData metaData = rs.getMetaData();
-                int columnCount = metaData.getColumnCount();
-                for (int i = 1; i <= columnCount; i++) {
-                    System.out.println(metaData.getCatalogName(i));
-                }
-                // Retrieve data from the result set
-                while (rs.next()) {
-//                    model.addRow(new Object[]{rs.getString("chore_name"),
-//                    rs.getString("chore_desc"),"Yes",(rs.getInt("chore_status") == 0 ? true : false)});
-                    
-                    model.addRow(new Object[]{rs.getString("chore_id"),rs.getString("chore_name"),
-                        df.GET_USER_WITH_ID(rs.getInt("chore_assigned_to")).name,(rs.getInt("chore_status") == 1 ? true : false)});
-                }
-            }
-            else if (tableName == "Two") {
-                //Reset Table
-                DefaultTableModel model = (DefaultTableModel)viewTaskTableTwo.getModel();
-                model.setRowCount(0);
-                viewTaskTableTwo.repaint();
-
-                // Retrieve data from the result set
-                while (rs.next()) {
-                     model.addRow(new Object[]{rs.getString("chore_id"),rs.getString("chore_name"),
-                     df.GET_USER_WITH_ID(rs.getInt("chore_assigned_to")).name,(rs.getInt("chore_status") == 1 ? true : false)});
-                }
-            }
-            // Close the result set, statement, and connection
-            rs.close();
-            stmt.close();
-            conn.close();
-            
-        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+        for (Chore chore : gtwc) {
+            model.addRow(new Object[]{chore.getId(),chore.getStatus(),
+            chore.getName(),true});
         }
+    }
+    
+    private void showAlertLate()
+    {
+
+        DatabaseFunctions df = new DatabaseFunctions();
+
+        var gtwc = df.GET_THIS_WEEK_CHORE_LIST();
+
+        String toShow = "";
+        for (Chore chore : gtwc) {
+            if (!"Completed".equals(chore.status))
+                toShow += chore.getAssigned_to() + " - " + chore.getName() + "\n";
+        }
+        JOptionPane.showMessageDialog(null, toShow, "Chores not done", JOptionPane.WARNING_MESSAGE);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -459,10 +454,15 @@ public class ViewChores extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton notDoneAlertBtn;
     private javax.swing.JButton viewLatestTask;

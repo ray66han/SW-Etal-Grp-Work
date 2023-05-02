@@ -6,6 +6,7 @@ package Main;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import org.Database.DatabaseFunctions;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -23,12 +24,33 @@ public class TaskCompletionChart {
         
         // Create the dataset
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(5, "Done", "Rayhan");
-        dataset.addValue(2, "Not done", "Rayhan");
-        dataset.addValue(7, "Total", "Rayhan");
-        dataset.addValue(7, "Done", "Bijoy");
-        dataset.addValue(0, "Not done", "Bijoy");
-        dataset.addValue(7, "Total", "Bijoy");
+        DatabaseFunctions df = new DatabaseFunctions();
+        int ot = 0, oc = 0, ond = 0;
+        int tt = 0, tc = 0, tnd = 0;
+        String one = "",two = "";
+        try {
+            User userOne = df.GET_USER_WITH_ID(0);
+            int userOneTotal = df.GET_USER_TOTAL_CHORES_COUNT(userOne);
+            int userOneCompleted = df.GET_USER_COMPLETED_CHORES_COUNT(userOne);
+            one = userOne.getName();
+            ot = userOneTotal;
+            oc = userOneCompleted;
+            ond = userOneTotal - userOneCompleted;
+            User userTwo = df.GET_USER_WITH_ID(1);
+            int userTwoTotal = df.GET_USER_TOTAL_CHORES_COUNT(userTwo);
+            int userTwoCompleted = df.GET_USER_COMPLETED_CHORES_COUNT(userTwo);
+            two = userTwo.getName();
+            tt = userTwoTotal;
+            tc = userTwoCompleted;
+            tnd = userTwoTotal - userTwoCompleted;
+        } catch (Exception e) {
+        }
+        dataset.addValue(oc, "Done", one);
+        dataset.addValue(ond, "Not done", one);
+        dataset.addValue(ot, "Total", one);
+        dataset.addValue(tc, "Done", two);
+        dataset.addValue(tnd, "Not done", two);
+        dataset.addValue(tt, "Total", two);
         
         // Create the chart
         JFreeChart chart = ChartFactory.createBarChart(
@@ -61,7 +83,7 @@ public class TaskCompletionChart {
         
         // Create the frame to hold the panel and display it
         JFrame frame = new JFrame("Task Completion Chart");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add(chartPanel);
         frame.pack();
         frame.setVisible(true);
