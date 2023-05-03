@@ -417,7 +417,7 @@ public class ViewChores extends javax.swing.JFrame {
             chore.getAssigned_to(),("Completed".equals(chore.status))});
         }
     }
-    
+//    table two
      private void setTableTwo()
     {
         DatabaseFunctions df = new DatabaseFunctions();
