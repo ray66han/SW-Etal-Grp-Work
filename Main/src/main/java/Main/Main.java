@@ -14,7 +14,7 @@ public class Main {
         ArrayList<Chore> list = Database.GET_LAST_WEEK_FINISHED_CHORE_LIST(); // Get data from database
 
         for (final Chore chore : list) { // Loop over ArrayList
-            System.out.println(chore.name + " has been completed last week by " + chore.assigned_to); // Example of using the data
+            System.out.println(chore.getName() + " has been completed last week by "); // Example of using the data
         }
     }
 }

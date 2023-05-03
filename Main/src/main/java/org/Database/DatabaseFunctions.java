@@ -82,10 +82,10 @@ public class DatabaseFunctions {
         }
     }
 
-    public void SET_USER_WEIGHT(User user, Float weight) {
+    public void SET_USER_WEIGHT(User user, double weight) {
         String query_setweight = "UPDATE users SET user_weight = ? WHERE user_id = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query_setweight)) {
-            preparedStatement.setFloat(1, weight);
+            preparedStatement.setDouble(1, weight);
             preparedStatement.setInt(2, user.getId());
             preparedStatement.execute();
             System.out.println("[Database] Updated user's weight!");

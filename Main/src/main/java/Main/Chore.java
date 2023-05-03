@@ -2,20 +2,25 @@ package Main;
 
 public class Chore {
 
-    Integer id;
-    String name;
-    String status;
-    Boolean reoccuring;
-    String assigned_to;
-    Integer time;
+    private Integer id;
+    private String name;
+    private String status;
+    private Boolean reoccuring;
+    private String assigned_to;
+    private Integer time;
 
     /**
-     * @param id The ID of the chore
+     * @param id The ID of the chore.
      * @param name The name/desc of the chore.
-     * @param status Current status, E.g Not Done, Doing, Done
-     * @param reoccuring Is this chore reoccuring? E.g weekly
-     * @param assigned_to Who is completing this chore?
-     * @param time Overrall time estimate of this chore.
+     * @param selected Have the users actually selected to do this chore for
+     * this week.
+     * @param status Current status, E.g Not Done, Doing, Done.
+     * @param reoccuring Is this chore reoccurring? E.g weekly.
+     * @param assigned_to Who is completing this chore? 0 == not assigned, 1 ==
+     * assigned to user 1, 2 == assigned to user 2.
+     * @param time Overall time estimate of this chore.
+     * @param user1Est user1 Overall time estimate of this chore.
+     * @param user2Est user2 Overall time estimate of this chore.
      */
     public Chore(Integer id, String name, String status, Boolean reoccuring, Integer time, String assigned_to) {
         this.id = id;

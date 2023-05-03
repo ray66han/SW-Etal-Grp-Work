@@ -24,7 +24,7 @@ public class PieChartGUI extends JFrame {
         int ndc = 0; // ndc = not done chores list
         var dc = 0; // dc = done chores list
         for (Chore chore : gtwc) {
-            if ("Completed".equals(chore.status)) {
+            if ("Completed".equals(chore.getStatus())) {
                 dc++;
             } else {
                 ndc++;
