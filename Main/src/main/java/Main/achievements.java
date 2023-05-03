@@ -16,7 +16,7 @@ import org.Database.DatabaseFunctions;
 public class achievements extends javax.swing.JFrame {
 
     /**
-     * Creates new form Achievments
+     * Creates new form Achievements
      */
     public achievements() {
         initComponents();

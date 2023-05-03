@@ -414,7 +414,7 @@ public class ViewChores extends javax.swing.JFrame {
 
         for (Chore chore : gtwc) {
             model.addRow(new Object[]{chore.getName(),
-            chore.getAssigned_to(),("Completed".equals(chore.status))});
+            chore.getAssigned_to(),("Completed".equals(chore.getStatus()))});
         }
     }
     
@@ -442,7 +442,7 @@ public class ViewChores extends javax.swing.JFrame {
 
         String toShow = "";
         for (Chore chore : gtwc) {
-            if (!"Completed".equals(chore.status))
+            if (!"Completed".equals(chore.getStatus()))
                 toShow += chore.getAssigned_to() + " - " + chore.getName() + "\n";
         }
         JOptionPane.showMessageDialog(null, toShow, "Chores not done", JOptionPane.WARNING_MESSAGE);

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
+import org.Database.DatabaseFunctions;
 
 /* Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -20,76 +21,60 @@ public class ChoreAssignAlgorithm {
 
     //Create dummy data. Can delete later.
     public void createDummyData() {
-        ChoreAlgo c = new ChoreAlgo(1, "Wash Dishes", true, 20, 15);
+        ChoreAlgo c = new ChoreAlgo(1, "Wash Dishes", true, "0", false, 20, 15);
         chores.add(c);
-        c = new ChoreAlgo(2, "Wash Dog", true, 21, 30);
+        c = new ChoreAlgo(2, "Wash Dog", true, "0", false, 21, 30);
         chores.add(c);
-        c = new ChoreAlgo(3, "Wash Cat", true, 12, 24);
+        c = new ChoreAlgo(3, "Wash Cat", true, "0", false, 12, 24);
         chores.add(c);
-        c = new ChoreAlgo(4, "Wash Kid", true, 17, 10);
+        c = new ChoreAlgo(4, "Wash Kid", true, "0", false, 17, 10);
         chores.add(c);
-        c = new ChoreAlgo(5, "Walk Dog", true, 21, 30);
+        c = new ChoreAlgo(5, "Walk Dog", true, "0", false, 21, 30);
         chores.add(c);
-        c = new ChoreAlgo(6, "Walk Cat", true, 12, 24);
+        c = new ChoreAlgo(6, "Walk Cat", true, "0", false, 12, 24);
         chores.add(c);
-        c = new ChoreAlgo(7, "Walk Kid", true, 17, 10);
+        c = new ChoreAlgo(7, "Walk Kid", true, "0", false, 17, 10);
         chores.add(c);
-        c = new ChoreAlgo(8, "Make Bed", true, 21, 30);
+        c = new ChoreAlgo(8, "Make Bed", true, "0", false, 21, 30);
         chores.add(c);
-        c = new ChoreAlgo(9, "Take Bins Out", true, 12, 24);
+        c = new ChoreAlgo(9, "Take Bins Out", true, "0", false, 12, 24);
         chores.add(c);
-        c = new ChoreAlgo(10, "Clean Oven", true, 17, 10);
+        c = new ChoreAlgo(10, "Clean Oven", true, "0", false, 17, 10);
         chores.add(c);
-        c = new ChoreAlgo(11, "Wash Floor", true, 21, 30);
+        c = new ChoreAlgo(11, "Wash Floor", true, "0", false, 21, 30);
         chores.add(c);
-        c = new ChoreAlgo(12, "Polish Floor", true, 12, 24);
+        c = new ChoreAlgo(12, "Polish Floor", true, "0", false, 12, 24);
         chores.add(c);
-        c = new ChoreAlgo(13, "Wash Windows", true, 17, 10);
+        c = new ChoreAlgo(13, "Wash Windows", true, "0", false, 17, 10);
         chores.add(c);
-        c = new ChoreAlgo(14, "Wash Kid", true, 17, 10);
-        chores.add(c);
-        c = new ChoreAlgo(15, "Walk Dog", true, 21, 30);
-        chores.add(c);
-        c = new ChoreAlgo(16, "Walk Cat", true, 12, 24);
-        chores.add(c);
-        c = new ChoreAlgo(17, "Walk Kid", true, 17, 10);
-        chores.add(c);
-        c = new ChoreAlgo(18, "Make Bed", true, 21, 30);
-        chores.add(c);
-        c = new ChoreAlgo(19, "Take Bins Out", true, 12, 24);
-        chores.add(c);
-        c = new ChoreAlgo(20, "Clean Oven", true, 17, 10);
-        chores.add(c);
-        c = new ChoreAlgo(21, "Wash Floor", true, 21, 30);
-        chores.add(c);
-        c = new ChoreAlgo(22, "Polish Floor", true, 12, 24);
-        chores.add(c);
-        c = new ChoreAlgo(23, "Wash Windows", true, 17, 10);
-        chores.add(c);
-        c = new ChoreAlgo(24, "Wash Kid", true, 17, 10);
-        chores.add(c);
-        c = new ChoreAlgo(25, "Walk Dog", true, 21, 30);
-        chores.add(c);
-        c = new ChoreAlgo(26, "Walk Cat", true, 12, 24);
-        chores.add(c);
-        c = new ChoreAlgo(27, "Walk Kid", true, 17, 10);
-        chores.add(c);
-        c = new ChoreAlgo(28, "Make Bed", true, 21, 30);
-        chores.add(c);
-        c = new ChoreAlgo(29, "Take Bins Out", true, 12, 24);
-        chores.add(c);
-        c = new ChoreAlgo(30, "Clean Oven", true, 17, 10);
-        chores.add(c);
-        c = new ChoreAlgo(31, "Wash Floor", true, 21, 30);
-        chores.add(c);
-        c = new ChoreAlgo(32, "Polish Floor", true, 12, 24);
+        c = new ChoreAlgo(14, "Wash Kid", true, "0", false, 17, 10);
         chores.add(c);
     }
 
+    /*
+    ArrayList<ChoreAlgo> chores;
+    DatabaseFunctions database;
+//= Database.GET_FULL_CHORE_LIST();
+
+    //Create dummy data.
+    public ChoreAssignAlgorithm() {
+        database = new DatabaseFunctions();
+        chores = new ArrayList();
+        try {
+            chores = database.GET_FULL_CHORE_LIST();
+        } catch (Exception e) {
+            System.out.println("Error occured in extracting data");
+        }
+    }
+    
+    public ChoreAssignAlgorithm() {
+        DatabaseFunctions Database = new DatabaseFunctions();
+        ArrayList<Chore> chores = Database.GET_FULL_CHORE_LIST();
+    }*/
     //Function for seeing if a chore is assigned or not.
     private boolean unassigenedChores() {
         for (ChoreAlgo c : chores) {
-            if (c.getAssignedTo() == 0) {
+            if (c.getAssigned_to() == 0) {
                 return true;
             }
         }
@@ -100,8 +85,10 @@ public class ChoreAssignAlgorithm {
     public void choreAlgorithm() {
 
         //Is fetched from the DB.
-        double user1WeightCarriedOver = 0.03;
-        double user2WeightCarriedOver = 0;
+        //double user1WeightCarriedOver = Database.SET_USER_WEIGHT();
+        //double user2WeightCarriedOver = Database.SET_USER_WEIGHT();
+        double user1WeightCarriedOver = 0.3;
+        double user2WeightCarriedOver = 0.0;
 
         double user1Weight = user1WeightCarriedOver;
         double user2Weight = user2WeightCarriedOver;
@@ -131,20 +118,20 @@ public class ChoreAssignAlgorithm {
                 ChoreAlgo chosenChore = null;
 
                 for (ChoreAlgo c : chores) {//trying to find suitable chore for user1
-                    if (c.getAssignedTo() == 0 && c.getUser1Est() < c.getUser2Est()) {
+                    if (c.getAssigned_to() == 0 && c.getUser1Est() < c.getUser2Est()) {
                         chosenChore = c;
                         break;
                     }
                 }
                 if (chosenChore == null) {//find any chore for user1
                     for (ChoreAlgo c : chores) {
-                        if (c.getAssignedTo() == 0) {
+                        if (c.getAssigned_to() == 0) {
                             chosenChore = c;
                             break;
                         }
                     }
                 }
-                chosenChore.setAssignedTo(1); //assigning part
+                chosenChore.setAssigned_to(1); //assigning part
                 user1Weight += chosenChore.getUser1Est();
             }//End of if.
             else { //need to assign to user2.
@@ -158,20 +145,20 @@ public class ChoreAssignAlgorithm {
                 ChoreAlgo chosenChore = null;
 
                 for (ChoreAlgo c : chores) {//find suitable chore for user 2
-                    if (c.getAssignedTo() == 0 && c.getUser2Est() < c.getUser1Est()) {
+                    if (c.getAssigned_to() == 0 && c.getUser2Est() < c.getUser1Est()) {
                         chosenChore = c;
                         break;
                     }
                 }
                 if (chosenChore == null) {//find any chore for user 2
                     for (ChoreAlgo c : chores) {
-                        if (c.getAssignedTo() == 0) {
+                        if (c.getAssigned_to() == 0) {
                             chosenChore = c;
                             break;
                         }
                     }
                 }
-                chosenChore.setAssignedTo(2); //assign here
+                chosenChore.setAssigned_to(2); //assign here
                 user2Weight += chosenChore.getUser2Est();
             }//End of else.
         }//End while unassigenedChores
@@ -184,12 +171,24 @@ public class ChoreAssignAlgorithm {
             user2WeightCarriedOver = 0;
         }
 
+        //SendAssignedChores();
     }//End of choreAlgorithm.
 
+    /*
+    public void SendAssignedChores() {
+        try {
+            for (ChoreAlgo chore : chores) {
+                User assigned = database.GET_USER_WITH_ID(Integer.valueOf(ChoreAlgo.getAssigned_to()));
+                database.ASSIGN_CHORE_TO_USER(chore, assigned);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }*/
     public static void main(String[] args) {
         ChoreAssignAlgorithm a = new ChoreAssignAlgorithm();
 
-        a.createDummyData();
+        //a.createDummyData();
         a.choreAlgorithm();
     }
 }//End of class Algorithm.
