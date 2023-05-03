@@ -1,6 +1,7 @@
 package Main;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import org.Database.DatabaseFunctions;
 
 /*
@@ -19,6 +20,7 @@ public class homePage extends javax.swing.JFrame {
      */
     public homePage() {
         initComponents();
+        SwingUtilities.invokeLater(() -> jScrollPane1.getVerticalScrollBar().setValue(0));
     }
 
     /**
