@@ -33,14 +33,14 @@ public class addTask extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTask = new javax.swing.JLabel();
+        lblChore = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
-        txtTaskDesc = new javax.swing.JTextField();
+        txtChoreDesc = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblTask.setText("Task");
+        lblChore.setText("Chore Name/Desc");
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -49,9 +49,9 @@ public class addTask extends javax.swing.JDialog {
             }
         });
 
-        txtTaskDesc.addActionListener(new java.awt.event.ActionListener() {
+        txtChoreDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTaskDescActionPerformed(evt);
+                txtChoreDescActionPerformed(evt);
             }
         });
 
@@ -67,25 +67,26 @@ public class addTask extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSubmit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
-                .addComponent(btnCancel)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblChore)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtChoreDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSubmit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                        .addComponent(btnCancel)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(lblTask)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTaskDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTask)
-                    .addComponent(txtTaskDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblChore)
+                    .addComponent(txtChoreDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubmit)
@@ -96,12 +97,12 @@ public class addTask extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTaskDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaskDescActionPerformed
+    private void txtChoreDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChoreDescActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTaskDescActionPerformed
+    }//GEN-LAST:event_txtChoreDescActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        parent.insertChore(txtTaskDesc.getText());
+        parent.insertChore(txtChoreDesc.getText());
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnSubmitActionPerformed
@@ -154,7 +155,7 @@ public class addTask extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JLabel lblTask;
-    private javax.swing.JTextField txtTaskDesc;
+    private javax.swing.JLabel lblChore;
+    private javax.swing.JTextField txtChoreDesc;
     // End of variables declaration//GEN-END:variables
 }
