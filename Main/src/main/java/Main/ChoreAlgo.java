@@ -2,7 +2,19 @@ package Main;
 
 public class ChoreAlgo {
 
-    //Everything commented out is the original code.
+    /*
+    
+    
+    
+    This ChoreAlgo (short for Chore Algorithm) class
+    is the Chore class that has the constructor that
+    works for the ChoreAssignAlgorithm Class.
+    
+    
+        
+     */
+    
+    //Everything commented out is the original code from the Chore Class.
     /*
     Integer id;
     String name;
@@ -11,6 +23,8 @@ public class ChoreAlgo {
     String assigned_to;
     Integer time;
      */
+    
+    // Instance variables.
     private Integer id;
     private String name;
     private boolean selected;
@@ -24,9 +38,8 @@ public class ChoreAlgo {
 
     /**
      * @param id The ID of the chore.
-     * @param name The name/desc of the chore.
-     * @param selected Have the users actually selected to do this chore for
-     * this week.
+     * @param name The name & description of the chore.
+     * @param selected Have the users selected this chore for this week.
      * @param status Current status, E.g Not Done, Doing, Done.
      * @param reoccuring Is this chore reoccurring? E.g weekly.
      * @param assigned_to Who is completing this chore? 0 == not assigned, 1 ==
@@ -35,6 +48,7 @@ public class ChoreAlgo {
      * @param user1Est user1 Overall time estimate of this chore.
      * @param user2Est user2 Overall time estimate of this chore.
      */
+    
     /*
     public Chore(Integer id, String name, String status, Boolean reoccuring, Integer time, String assigned_to) {
         this.id = id;
@@ -45,6 +59,7 @@ public class ChoreAlgo {
         this.time = time;
     }
      */
+    
     // Defult chore.
     public ChoreAlgo() {
         this.id = 0;
@@ -57,6 +72,7 @@ public class ChoreAlgo {
         this.user2Est = 0;
     }
 
+    // Chore constructor that works for the ChoreAssignAlgorithm.
     public ChoreAlgo(Integer id, String name, boolean selcted, String status, boolean reoccuring, double us1est, double us2est) {
         this.id = id;
         this.name = name;
@@ -68,6 +84,7 @@ public class ChoreAlgo {
         this.user2Est = us2est;
     }
 
+    // Getters & Setters.
     public Integer getId() {
         return id;
     }
@@ -117,6 +134,7 @@ public class ChoreAlgo {
         this.assigned_to = assigned_to;
     }
      */
+    
     public int getAssigned_to() {
         return assigned_to;
     }
@@ -134,6 +152,7 @@ public class ChoreAlgo {
         this.time = time;
     }
      */
+    
     public double getUser1Est() {
         return user1Est;
     }

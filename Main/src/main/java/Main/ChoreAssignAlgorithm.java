@@ -16,10 +16,30 @@ import org.Database.DatabaseFunctions;
  */
 public class ChoreAssignAlgorithm {
 
-    //Is fetched from the DB.
+    /*
+    private ArrayList<ChoreAlgo> chores;
+    //DatabaseFunctions database;
+    //= Database.GET_FULL_CHORE_LIST();
+
+    public ChoreAssignAlgorithm() {
+        database = new DatabaseFunctions();
+        chores = new ArrayList();
+        try {
+            chores = database.GET_FULL_CHORE_LIST();
+        } catch (Exception e) {
+            System.out.println("Error occured in extracting data");
+        }
+    }*/
+
+ /*public ChoreAssignAlgorithm() {
+        DatabaseFunctions Database = new DatabaseFunctions();
+        ArrayList<Chore> chores = Database.GET_FULL_CHORE_LIST();
+    }*/
+    
+    //Was meant to be fetching from the Database. Instead I am creating an ArrayList that uses the ChoreAlgo class constructor.
     ArrayList<ChoreAlgo> chores = new ArrayList<ChoreAlgo>();
 
-    //Create dummy data. Can delete later.
+    // I am creating dummy data that will be added to 'ArrayList<ChoreAlgo> chores'.
     public void createDummyData() {
         ChoreAlgo c = new ChoreAlgo(1, "Wash Dishes", true, "0", false, 20, 15);
         chores.add(c);
@@ -51,26 +71,6 @@ public class ChoreAssignAlgorithm {
         chores.add(c);
     }
 
-    /*
-    ArrayList<ChoreAlgo> chores;
-    DatabaseFunctions database;
-//= Database.GET_FULL_CHORE_LIST();
-
-    //Create dummy data.
-    public ChoreAssignAlgorithm() {
-        database = new DatabaseFunctions();
-        chores = new ArrayList();
-        try {
-            chores = database.GET_FULL_CHORE_LIST();
-        } catch (Exception e) {
-            System.out.println("Error occured in extracting data");
-        }
-    }
-    
-    public ChoreAssignAlgorithm() {
-        DatabaseFunctions Database = new DatabaseFunctions();
-        ArrayList<Chore> chores = Database.GET_FULL_CHORE_LIST();
-    }*/
     //Function for seeing if a chore is assigned or not.
     private boolean unassigenedChores() {
         for (ChoreAlgo c : chores) {
@@ -186,9 +186,12 @@ public class ChoreAssignAlgorithm {
         }
     }*/
     public static void main(String[] args) {
-        ChoreAssignAlgorithm a = new ChoreAssignAlgorithm();
+        // Creates an object called algo.
+        ChoreAssignAlgorithm algo = new ChoreAssignAlgorithm();
 
-        //a.createDummyData();
-        a.choreAlgorithm();
+        // The algo object is calling the createDummyData() funcitons to create the dummy data.
+        algo.createDummyData();
+        // The algo object is calling the choreAlgorithm() funcitons to run the algorithm & assign the chores.
+        algo.choreAlgorithm();
     }
-}//End of class Algorithm.
+}//End of ChoreAssignAlgorithm class.

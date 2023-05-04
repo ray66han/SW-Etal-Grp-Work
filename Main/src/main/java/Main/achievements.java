@@ -9,10 +9,6 @@ import org.Database.DatabaseFunctions;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**
- *
- * @author w20003032
- */
 public class achievements extends javax.swing.JFrame {
 
     /**
