@@ -129,14 +129,14 @@ public class ViewChores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "User", "Changing Status"
+                "Name", "User", "Status"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                true, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -169,7 +169,7 @@ public class ViewChores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "User", "Changing Status"
+                "Name", "User", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -221,7 +221,7 @@ public class ViewChores extends javax.swing.JFrame {
         jTextArea2.setFont(new java.awt.Font("PT Sans Caption", 0, 14)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea2.setRows(5);
-        jTextArea2.setText("1. View this week's list of chores here.\n2. Receive alerts for incomplete chores upon opening the app.\n3. Mark chores as done or not done by clicking the checkbox.\n4. Access last week's chore list.\n5. Use the refresh button to see any changes made.\n6. The table displays the chore ID, details, user, and status.");
+        jTextArea2.setText("1. View this week's list of chores here.\n2. Receive alerts for incomplete chores upon opening the app.\n3. Mark chores as done or not done by clicking the checkbox.\n4. Access last week's chore list.\n5. Use the refresh button to see any changes made.\n6. The table displays the chore short details, user, and status.");
         jScrollPane4.setViewportView(jTextArea2);
 
         jLabel2.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N

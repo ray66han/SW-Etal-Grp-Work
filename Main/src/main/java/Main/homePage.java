@@ -176,7 +176,7 @@ public class homePage extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
-        jTextArea1.setText("System:\n1. The system enables the creation of a weekly chore list\n2. Users can view their chores and mark them as completed\n3. Progress tracking is available\n\nSystem menual:\n1. Go to the \"Create Chores List\" page and follow the instructions\n2. Check the list on \"View Task\" and follow instructions\n3. View progress on \"Achievement\" page, browse home for more details\n\nThis page shows:\n1. User details are provided\n2. General system guidelines are included\n3. A weekly chores pie chart shows done and not done chores\n4. A weekly user bar chart displays tasks done, not done, and total");
+        jTextArea1.setText("System:\n1. The system enables the creation of a weekly chore list\n2. Users can view their chores and mark them as completed\n3. Progress tracking is available\n\nSystem Manual:\n1. Go to the \"Create Chores List\" page and follow the instructions\n2. Check the list on \"View Task\" and follow instructions\n3. View progress on \"Achievement\" page, browse home for more details\n\nThis page shows:\n1. User details are provided\n2. General system guidelines are included\n3. A weekly chores pie chart shows done and not done chores\n4. A weekly user bar chart displays tasks done, not done, and total");
         jScrollPane2.setViewportView(jTextArea1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
