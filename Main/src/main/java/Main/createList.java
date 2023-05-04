@@ -305,7 +305,9 @@ public class createList extends javax.swing.JFrame {
         //System.out.println(list);
         
         for (Chore c:list){
-        System.out.println(c.getName());
+            System.out.println(c.getId());
+            System.out.println(c.getName());
+            
         }
     }//GEN-LAST:event_btnPullListActionPerformed
 
