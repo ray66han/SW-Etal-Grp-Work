@@ -193,9 +193,6 @@ public class createList extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(spList, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(lblCreateList))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -210,6 +207,10 @@ public class createList extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(197, 197, 197)))))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblCreateList)
+                .addGap(269, 269, 269))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,10 +265,8 @@ public class createList extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPullListActionPerformed
 
-    public void insertChore(String n, String d, String s){
-    System.out.println(n);
-    System.out.println(d);      //these will need to be added to the list
-    System.out.println(s);
+    public void insertChore(String d){
+    System.out.println(d);      //this will need to be added to the list
     }
     
     
