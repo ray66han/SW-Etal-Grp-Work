@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +29,7 @@ public class ViewChores extends javax.swing.JFrame {
      */
     public ViewChores() {
         initComponents();
+        SwingUtilities.invokeLater(() -> jScrollPane4.getVerticalScrollBar().setValue(0));
     }
 
     /**

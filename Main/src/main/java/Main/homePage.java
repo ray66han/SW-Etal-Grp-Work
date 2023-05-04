@@ -20,6 +20,8 @@ public class homePage extends javax.swing.JFrame {
      */
     public homePage() {
         initComponents();
+//        jScrollPane2.getVerticalScrollBar().setValue(0);
+        SwingUtilities.invokeLater(() -> jScrollPane2.getVerticalScrollBar().setValue(0));
         SwingUtilities.invokeLater(() -> jScrollPane1.getVerticalScrollBar().setValue(0));
     }
 
