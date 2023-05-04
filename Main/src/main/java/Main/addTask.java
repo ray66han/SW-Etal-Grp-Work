@@ -33,26 +33,14 @@ public class addTask extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtTaskName = new javax.swing.JTextField();
-        lblTaskDesc = new javax.swing.JLabel();
-        lblTaskStatus = new javax.swing.JLabel();
+        lblChore = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
-        txtTaskDesc = new javax.swing.JTextField();
-        txtTaskStatus = new javax.swing.JTextField();
+        txtChoreDesc = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
-        lblTaskName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        txtTaskName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTaskNameActionPerformed(evt);
-            }
-        });
-
-        lblTaskDesc.setText("Task Description");
-
-        lblTaskStatus.setText("Task Status");
+        lblChore.setText("Chore Name/Desc");
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -61,15 +49,9 @@ public class addTask extends javax.swing.JDialog {
             }
         });
 
-        txtTaskDesc.addActionListener(new java.awt.event.ActionListener() {
+        txtChoreDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTaskDescActionPerformed(evt);
-            }
-        });
-
-        txtTaskStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTaskStatusActionPerformed(evt);
+                txtChoreDescActionPerformed(evt);
             }
         });
 
@@ -80,47 +62,32 @@ public class addTask extends javax.swing.JDialog {
             }
         });
 
-        lblTaskName.setText("Task Name");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTaskStatus)
-                    .addComponent(lblTaskDesc)
-                    .addComponent(lblTaskName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTaskStatus)
-                    .addComponent(txtTaskDesc)
-                    .addComponent(txtTaskName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSubmit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblChore)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtChoreDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSubmit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                        .addComponent(btnCancel)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTaskName)
-                    .addComponent(txtTaskName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTaskDesc)
-                    .addComponent(txtTaskDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTaskStatus)
-                    .addComponent(txtTaskStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                    .addComponent(lblChore)
+                    .addComponent(txtChoreDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubmit)
                     .addComponent(btnCancel))
@@ -130,20 +97,12 @@ public class addTask extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTaskNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaskNameActionPerformed
+    private void txtChoreDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChoreDescActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTaskNameActionPerformed
-
-    private void txtTaskDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaskDescActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTaskDescActionPerformed
-
-    private void txtTaskStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaskStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTaskStatusActionPerformed
+    }//GEN-LAST:event_txtChoreDescActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        parent.insertChore(txtTaskName.getText(), txtTaskDesc.getText(), txtTaskStatus.getText());
+        parent.insertChore(txtChoreDesc.getText());
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnSubmitActionPerformed
@@ -196,11 +155,7 @@ public class addTask extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JLabel lblTaskDesc;
-    private javax.swing.JLabel lblTaskName;
-    private javax.swing.JLabel lblTaskStatus;
-    private javax.swing.JTextField txtTaskDesc;
-    private javax.swing.JTextField txtTaskName;
-    private javax.swing.JTextField txtTaskStatus;
+    private javax.swing.JLabel lblChore;
+    private javax.swing.JTextField txtChoreDesc;
     // End of variables declaration//GEN-END:variables
 }

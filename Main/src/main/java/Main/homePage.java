@@ -1,6 +1,7 @@
 package Main;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import org.Database.DatabaseFunctions;
 
 /*
@@ -19,6 +20,14 @@ public class homePage extends javax.swing.JFrame {
      */
     public homePage() {
         initComponents();
+//        jScrollPane2.getVerticalScrollBar().setValue(0);
+        SwingUtilities.invokeLater(() -> jScrollPane2.getVerticalScrollBar().setValue(0));
+        SwingUtilities.invokeLater(() -> jScrollPane1.getVerticalScrollBar().setValue(0));
+        
+        // Set user one text filed non-editable
+        jTextField1.setEditable(false);
+        // Set user one text filed non-editable
+        jTextField3.setEditable(false);
     }
 
     /**
@@ -332,7 +341,6 @@ public class homePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         DatabaseFunctions df = new DatabaseFunctions();
         var gtwc = df.GET_THIS_WEEK_CHORE_LIST();
-
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed

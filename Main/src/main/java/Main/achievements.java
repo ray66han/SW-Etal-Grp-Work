@@ -2,6 +2,7 @@ package Main;
 
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.SwingUtilities;
 import org.Database.DatabaseFunctions;
 
 /*
@@ -16,6 +17,9 @@ public class achievements extends javax.swing.JFrame {
      */
     public achievements() {
         initComponents();
+        SwingUtilities.invokeLater(() -> jScrollPane3.getVerticalScrollBar().setValue(0));
+        SwingUtilities.invokeLater(() -> jScrollPane4.getVerticalScrollBar().setValue(0));
+        SwingUtilities.invokeLater(() -> jScrollPane2.getVerticalScrollBar().setValue(0));
     }
 
     /**

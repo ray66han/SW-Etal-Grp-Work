@@ -35,16 +35,16 @@ public class enterNames extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblName1 = new javax.swing.JLabel();
+        lblUser1 = new javax.swing.JLabel();
         txtName1 = new javax.swing.JTextField();
-        lblName2 = new javax.swing.JLabel();
+        lblUser2 = new javax.swing.JLabel();
         txtName2 = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblName1.setText("User 1 Name:");
+        lblUser1.setText("User 1 Details:");
 
         txtName1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +52,7 @@ public class enterNames extends javax.swing.JDialog {
             }
         });
 
-        lblName2.setText("User 2 Name:");
+        lblUser2.setText("User 2 Details:");
 
         txtName2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,11 +87,11 @@ public class enterNames extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblName1)
+                    .addComponent(lblUser1)
                     .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblName2)
+                    .addComponent(lblUser2)
                     .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
@@ -101,14 +101,14 @@ public class enterNames extends javax.swing.JDialog {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblName1)
+                        .addComponent(lblUser1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblName2)
+                        .addComponent(lblUser2)
                         .addGap(7, 7, 7)
                         .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel)
                     .addComponent(btnSubmit))
@@ -186,8 +186,8 @@ public class enterNames extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JLabel lblName1;
-    private javax.swing.JLabel lblName2;
+    private javax.swing.JLabel lblUser1;
+    private javax.swing.JLabel lblUser2;
     private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtName2;
     // End of variables declaration//GEN-END:variables
