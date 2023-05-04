@@ -31,8 +31,8 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Component id="lblTaskDesc" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+              <Component id="lblTask" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtTaskDesc" min="-2" pref="100" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -44,7 +44,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTaskDesc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTask" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtTaskDesc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="116" max="32767" attributes="0"/>
@@ -58,9 +58,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblTaskDesc">
+    <Component class="javax.swing.JLabel" name="lblTask">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Task Description"/>
+        <Property name="text" type="java.lang.String" value="Task"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSubmit">
