@@ -181,7 +181,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Note*: 1 chore = 1 level, 5 levels = 1 league."/>
+        <Property name="text" type="java.lang.String" value="Note*: 1 chore = 1 level, 5 levels = 1 league (Bronze, Silve, Gold &amp; Diamond)."/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane4">

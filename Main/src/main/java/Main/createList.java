@@ -2,6 +2,7 @@ package Main;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.SwingUtilities;
 import org.Database.DatabaseFunctions;
 
 /*
@@ -20,6 +21,7 @@ public class createList extends javax.swing.JFrame {
      */
     public createList() {
         initComponents();
+        SwingUtilities.invokeLater(() -> jScrollPane4.getVerticalScrollBar().setValue(0));
     }
 
     /**
@@ -83,6 +85,7 @@ public class createList extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnPullList.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         btnPullList.setText("Pull/Refresh List");
         btnPullList.setMaximumSize(new java.awt.Dimension(80, 22));
         btnPullList.setMinimumSize(new java.awt.Dimension(80, 22));
@@ -92,9 +95,10 @@ public class createList extends javax.swing.JFrame {
             }
         });
 
-        lblCreateList.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblCreateList.setFont(new java.awt.Font("PT Serif Caption", 1, 18)); // NOI18N
         lblCreateList.setText("Weekly Task List");
 
+        createChoresListTable.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         createChoresListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -116,6 +120,7 @@ public class createList extends javax.swing.JFrame {
         });
         spList.setViewportView(createChoresListTable);
 
+        btnAddTask.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         btnAddTask.setText("Add Chores");
         btnAddTask.setMaximumSize(new java.awt.Dimension(80, 22));
         btnAddTask.setMinimumSize(new java.awt.Dimension(80, 22));
@@ -125,6 +130,7 @@ public class createList extends javax.swing.JFrame {
             }
         });
 
+        btnPushList.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         btnPushList.setText("Push List");
         btnPushList.setMaximumSize(new java.awt.Dimension(80, 22));
         btnPushList.setMinimumSize(new java.awt.Dimension(80, 22));
@@ -134,6 +140,7 @@ public class createList extends javax.swing.JFrame {
             }
         });
 
+        btnAddNames.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         btnAddNames.setText("Add Names");
         btnAddNames.setMaximumSize(new java.awt.Dimension(80, 22));
         btnAddNames.setMinimumSize(new java.awt.Dimension(80, 22));
@@ -192,7 +199,7 @@ public class createList extends javax.swing.JFrame {
         jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(131, 197, 190));
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("PT Sans Caption", 0, 14)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea2.setRows(5);
         jTextArea2.setText("1. View this week's list of chores here.\n2. Receive alerts for incomplete chores upon opening the app.\n3. Mark chores as done or not done by clicking the checkbox.\n4. Access last week's chore list.\n5. Use the refresh button to see any changes made.\n6. The table displays the chore ID, details, user, and status.");
@@ -201,6 +208,7 @@ public class createList extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("PT Serif Caption", 1, 15)); // NOI18N
         jLabel3.setText("Instructions:");
 
+        btnDelete.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         btnDelete.setText("Delete Chore");
         btnDelete.setMaximumSize(new java.awt.Dimension(80, 22));
         btnDelete.setMinimumSize(new java.awt.Dimension(80, 22));

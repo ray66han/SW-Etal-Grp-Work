@@ -81,7 +81,7 @@ public class achievements extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 153, 153));
         jLabel4.setForeground(new java.awt.Color(255, 153, 153));
-        jLabel4.setText("Note*: 1 chore = 1 level, 5 levels = 1 league.");
+        jLabel4.setText("Note*: 1 chore = 1 level, 5 levels = 1 league (Bronze, Silve, Gold & Diamond).");
 
         jTextArea2.setEditable(false);
         jTextArea3.setBackground(new java.awt.Color(176, 208, 211));
