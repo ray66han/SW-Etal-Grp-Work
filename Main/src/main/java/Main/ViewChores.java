@@ -176,7 +176,7 @@ public class ViewChores extends javax.swing.JFrame {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -340,7 +340,13 @@ public class ViewChores extends javax.swing.JFrame {
                 String task = viewTaskTableOne.getModel().getValueAt(row, 0).toString();
                 String setValue = (result == "true") ? "1" : "0";
                 System.out.println(result + " - " + task + " - " + setValue);
-                Chore c = new Chore(Integer.parseInt(task), task, "0", false, 1, "1");
+                int choreID = 0;
+                for(Chore chore : df.GET_THIS_WEEK_CHORE_LIST())
+                {
+                    if (chore.getName().equals(task))
+                        choreID = chore.getId();
+                }
+                Chore c = new Chore(choreID, task, "0", false, 1, "1");
                 df.SET_CHORE_STATUS(c, (setValue == "1") ? 2 : 0);
             }
         });
