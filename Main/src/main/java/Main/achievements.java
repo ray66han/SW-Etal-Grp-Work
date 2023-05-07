@@ -6,8 +6,15 @@ import javax.swing.SwingUtilities;
 import org.Database.DatabaseFunctions;
 
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt 
+ * to change this license.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit 
+ * this template.
+ */
+
+/**
+ *
+ * @author Rayhan Chowdhury Bijoy
  */
 
 public class achievements extends javax.swing.JFrame {
@@ -17,9 +24,17 @@ public class achievements extends javax.swing.JFrame {
      */
     public achievements() {
         initComponents();
-        SwingUtilities.invokeLater(() -> jScrollPane3.getVerticalScrollBar().setValue(0));
-        SwingUtilities.invokeLater(() -> jScrollPane4.getVerticalScrollBar().setValue(0));
-        SwingUtilities.invokeLater(() -> jScrollPane2.getVerticalScrollBar().setValue(0));
+        SwingUtilities.invokeLater(() -> 
+                jScrollPane3.getVerticalScrollBar().setValue(0));
+        // set jScrollPane3 ScrollBar value to 0
+        
+        SwingUtilities.invokeLater(() -> 
+                jScrollPane4.getVerticalScrollBar().setValue(0));
+        // set jScrollPane4 ScrollBar value to 0
+        
+        SwingUtilities.invokeLater(() -> 
+                jScrollPane2.getVerticalScrollBar().setValue(0));
+        // set jScrollPane2 ScrollBar value to 0
     }
 
     /**
@@ -209,34 +224,36 @@ public class achievements extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        homePage home = new homePage();
-        home.setVisible(true);
-        this.dispose();
+        homePage home = new homePage(); // get homePage.java
+        home.setVisible(true); // Show the HomePage
+        this.dispose(); // Dispose the achievements page
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        createList makeList = new createList();
-        makeList.setVisible(true);
-        this.dispose();
+        createList makeList = new createList(); // get createList.java
+        makeList.setVisible(true); // Show the createList
+        this.dispose(); // Dispose the achievements page
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ViewChores viewChoresList = new ViewChores();
-        viewChoresList.setVisible(true);
-        this.dispose();
+        ViewChores viewChoresList = new ViewChores(); // get ViewChores.java
+        viewChoresList.setVisible(true); // Show the viewChoresList
+        this.dispose(); // Dispose the achievements page
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        achievements gamification = new achievements();
-        gamification.setVisible(true);
-        this.dispose();
+        achievements gamification = new achievements(); // get achievements.java
+        gamification.setVisible(true); // Show the achievements
+        this.dispose(); // Dispose the achievements page
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    // randomFeedBackMessage function- which will show some amazing message
     private String randomFeedBackMessage()
     {
+        // feedbackList created
         ArrayList<String> feedbackList = new ArrayList<>();
         
         feedbackList.add("Well done!");
@@ -256,6 +273,7 @@ public class achievements extends javax.swing.JFrame {
         return randomFeedback;
     }
     
+    // getLeague function 
     public static String getLeague(int levelsCompleted) {
         int levelRemainder = levelsCompleted / 5;
         switch (levelRemainder) {
@@ -270,6 +288,7 @@ public class achievements extends javax.swing.JFrame {
         }
     }
     
+    // setLevelAndLeague function created
     private void setLevelAndLeague()
     {
         DatabaseFunctions df = new DatabaseFunctions();
@@ -282,8 +301,12 @@ public class achievements extends javax.swing.JFrame {
             userTwoLevel = df.GET_LAST_MONTH_FINISHED_CHORE_LIST(userTwo);
         } catch (Exception e) {
         }
-        jTextArea3.setText("Level: " + userOneLevel + "\nMessage: " + randomFeedBackMessage() + "\nLeague: " + getLeague(userOneLevel));
-        jTextArea1.setText("Level: " + userTwoLevel + "\nMessage: " + randomFeedBackMessage() + "\nLeague: " + getLeague(userTwoLevel));
+        jTextArea3.setText("Level: " + userOneLevel + "\nMessage: " + 
+                randomFeedBackMessage() + "\nLeague: " + 
+                getLeague(userOneLevel));
+        jTextArea1.setText("Level: " + userTwoLevel + "\nMessage: " + 
+                randomFeedBackMessage() + "\nLeague: " + 
+                getLeague(userTwoLevel));
         
     }
     

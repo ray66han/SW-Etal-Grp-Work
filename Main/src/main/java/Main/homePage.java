@@ -5,13 +5,15 @@ import javax.swing.SwingUtilities;
 import org.Database.DatabaseFunctions;
 
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt 
+ * to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit 
+ * this template
  */
 
 /**
  *
- * @author usercc
+ * @author Rayhan Chowdhury Bijoy
  */
 public class homePage extends javax.swing.JFrame {
 
@@ -20,9 +22,13 @@ public class homePage extends javax.swing.JFrame {
      */
     public homePage() {
         initComponents();
-//        jScrollPane2.getVerticalScrollBar().setValue(0);
-        SwingUtilities.invokeLater(() -> jScrollPane2.getVerticalScrollBar().setValue(0));
-        SwingUtilities.invokeLater(() -> jScrollPane1.getVerticalScrollBar().setValue(0));
+        // jScrollPane2.getVerticalScrollBar().setValue(0);
+        SwingUtilities.invokeLater(() -> 
+                jScrollPane2.getVerticalScrollBar().setValue(0));
+        // set jScrollPane2 ScrollBar value to 0
+        SwingUtilities.invokeLater(() -> 
+                jScrollPane1.getVerticalScrollBar().setValue(0));
+        // set jScrollPane1 ScrollBar value to 0
         
         // Set user one text filed non-editable
         jTextField1.setEditable(false);
@@ -339,8 +345,11 @@ public class homePage extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        // get databse functions
         DatabaseFunctions df = new DatabaseFunctions();
+        // df = databse function
         var gtwc = df.GET_THIS_WEEK_CHORE_LIST();
+        // gtwc = Get this week chore list
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
@@ -349,7 +358,9 @@ public class homePage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // get PieChartGUI.java file
         PieChartGUI demo = new PieChartGUI("Weekly Done & Not Done Pie Chart");
+        // set pie Chart necessarry settings
         demo.setSize(600, 300);
         demo.setLocationRelativeTo(null);
         demo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -364,45 +375,47 @@ public class homePage extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        homePage home = new homePage();
-        home.setVisible(true);
-        this.dispose();
+        homePage home = new homePage(); // get homePage.java
+        home.setVisible(true); // Show the homePage page
+        this.dispose(); // Dispose the home page
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        createList makeList = new createList();
-        makeList.setVisible(true);
-        this.dispose();
+        createList makeList = new createList(); // get createList.java
+        makeList.setVisible(true); // Show the createList
+        this.dispose(); // Dispose the home page
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ViewChores viewChoresList = new ViewChores();
-        viewChoresList.setVisible(true);
-        this.dispose();
+        ViewChores viewChoresList = new ViewChores(); // get createList.java
+        viewChoresList.setVisible(true); // Show the ViewChores page
+        this.dispose(); // Dispose the home page
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        achievements gamification = new achievements();
-        gamification.setVisible(true);
-        this.dispose();
+        achievements gamification = new achievements(); // get achievements.java
+        gamification.setVisible(true); // Show the achievements page
+        this.dispose(); // Dispose the home page
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        // get databse functions
         DatabaseFunctions df = new DatabaseFunctions();
+        // df = databse function
         String userOneName = "N/A", userTwoName = "N/A";
         try {
             User userOne = df.GET_USER_WITH_ID(0);
             User userTwo = df.GET_USER_WITH_ID(1);
-            userOneName = userOne.getName();
-            userTwoName = userTwo.getName();
+            userOneName = userOne.getName(); // get userOne Name
+            userTwoName = userTwo.getName(); // get userTwo Name
         } catch (Exception e) {
         }
-        jTextField1.setText("User01: " + userOneName);
-        jTextField3.setText("User02: " + userTwoName);
+        jTextField1.setText("User01: " + userOneName); // Show userOne Name
+        jTextField3.setText("User02: " + userTwoName); // Show userTwo Name
     }//GEN-LAST:event_formWindowOpened
 
     /**

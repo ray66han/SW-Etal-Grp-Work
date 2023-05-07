@@ -1,26 +1,23 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt 
+ * to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit 
+ * this template
  */
+// main packages goes here
 package Main;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-
+// import packages here
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
-
-import org.Database.DatabaseConnection;
+// Import databse functions.
 import org.Database.DatabaseFunctions;
 
 /**
  *
- * @author usercc
+ * @author Rayhan Chowdhury Bijoy
  */
 public class ViewChores extends javax.swing.JFrame {
 
@@ -29,7 +26,9 @@ public class ViewChores extends javax.swing.JFrame {
      */
     public ViewChores() {
         initComponents();
-        SwingUtilities.invokeLater(() -> jScrollPane4.getVerticalScrollBar().setValue(0));
+        // jScrollPane4 - Instruction Pane section scroll button value set to 0
+        SwingUtilities.invokeLater(() -> 
+                jScrollPane4.getVerticalScrollBar().setValue(0));
     }
 
     /**
@@ -297,47 +296,77 @@ public class ViewChores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // jButton1ActionPerformed - Home page connection
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        homePage home = new homePage();
-        home.setVisible(true);
-        this.dispose();
+        homePage home = new homePage(); // get homePage.java
+        home.setVisible(true); // Show the HomePage
+        this.dispose(); // Dispose the ViewChores page
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /** jButton2ActionPerformed - createList(Create Weekly Chores List) page
+     *  connection.
+     * @param evt 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        createList makeList = new createList();
-        makeList.setVisible(true);
-        this.dispose();
+        createList makeList = new createList(); // get createList.java
+        makeList.setVisible(true); // Show the createList
+        this.dispose(); // Dispose the ViewChores page
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * notDoneAlertBtnActionPerformed - viewChores page connection.
+     * @param evt 
+     */
     private void notDoneAlertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notDoneAlertBtnActionPerformed
         // TODO add your handling code here:
-        ViewChores viewChoresList = new ViewChores();
-        viewChoresList.setVisible(true);
-        this.dispose();
+        ViewChores viewChoresList = new ViewChores(); // get ViewChores.java
+        viewChoresList.setVisible(true); // Show the ViewChores
+        this.dispose(); // Dispose the ViewChores page
     }//GEN-LAST:event_notDoneAlertBtnActionPerformed
 
+    /**
+     * viewLatestTaskActionPerformed section is here
+     * @param evt 
+     */
     private void viewLatestTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLatestTaskActionPerformed
         // TODO add your handling code here:
         setTableOne();
         setTableTwo();
     }//GEN-LAST:event_viewLatestTaskActionPerformed
 
+    /**
+     * formWindowOpened - this page main actions listed here. Like: show alert,
+     * load tableOne, tableTwo, databseFunction, update etc.
+     * @param evt 
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
-        showAlertLate();
-        setTableOne();
-        setTableTwo();
-        DatabaseFunctions df = new DatabaseFunctions();
+        showAlertLate(); /** showAlertLate Function - It shows this week not 
+         * done task list.
+         */
+        setTableOne(); /** setTableOne Function - Show this week task list
+         * with Chores Name, User assigned for, and chores been done or not
+         * done status.
+         */
+        setTableTwo(); /** setTableTwo Function- Show the last week task list
+         * that has been done.
+         */
+        
+        // Getting databse function access.
+        DatabaseFunctions df = new DatabaseFunctions(); 
+        // df = database function
         viewTaskTableOne.getModel().addTableModelListener(ev -> {
             if (ev.getType() == TableModelEvent.UPDATE)
             {
-                int row = ev.getFirstRow();
-                int column = ev.getColumn();
-                String result = viewTaskTableOne.getModel().getValueAt(row, column).toString();
-                String task = viewTaskTableOne.getModel().getValueAt(row, 0).toString();
+                int row = ev.getFirstRow(); // get first row
+                int column = ev.getColumn(); // get column 
+                String result = viewTaskTableOne.getModel().getValueAt(row,
+                        column).toString();
+                String task = viewTaskTableOne.getModel().getValueAt(row,
+                        0).toString();
                 String setValue = (result == "true") ? "1" : "0";
                 System.out.println(result + " - " + task + " - " + setValue);
                 int choreID = 0;
@@ -360,18 +389,23 @@ public class ViewChores extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_viewTaskTableOneVetoableChange
 
+    /** jButton4ActionPerformed - achievements page connection.
+     * @param evt 
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        achievements gamification = new achievements();
-        gamification.setVisible(true);
-        this.dispose();
+        achievements gamification = new achievements(); // get achievements.java
+        gamification.setVisible(true); // Show the achievements page
+        this.dispose(); // Dispose the ViewChores page
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    /** jButton3ActionPerformed - ViewChores page connection.
+     * @param evt 
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        ViewChores viewChoresList = new ViewChores();
-        viewChoresList.setVisible(true);
-        this.dispose();
+        ViewChores viewChoresList = new ViewChores(); // get ViewChores.java
+        viewChoresList.setVisible(true); // Show the view-chores page
+        this.dispose(); // Dispose the ViewChores page
     }//GEN-LAST:event_jButton3ActionPerformed
 
     
@@ -410,13 +444,20 @@ public class ViewChores extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    // table one function
     private void setTableOne()
     {
+        // get database function
         DatabaseFunctions df = new DatabaseFunctions();
-        var gtwc = df.GET_THIS_WEEK_CHORE_LIST();
+        // df = database function
+        
+        var gtwc = df.GET_THIS_WEEK_CHORE_LIST(); /* gtwc - Get this week chores
+        * lsit.
+        */
 
-        DefaultTableModel model = (DefaultTableModel)viewTaskTableOne.getModel();
+        DefaultTableModel model = 
+                (DefaultTableModel)viewTaskTableOne.getModel();
         model.setRowCount(0);
         viewTaskTableOne.repaint();
 
@@ -425,13 +466,18 @@ public class ViewChores extends javax.swing.JFrame {
             chore.getAssigned_to(),("Completed".equals(chore.getStatus()))});
         }
     }
-//    table two
+    
+    // table two function
      private void setTableTwo()
     {
+        // get databse function
         DatabaseFunctions df = new DatabaseFunctions();
+        // df = databse function
         var gtwc = df.GET_LAST_WEEK_FINISHED_CHORE_LIST();
+        // gtwc = get last week chores list
 
-        DefaultTableModel model = (DefaultTableModel)viewTaskTableTwo.getModel();
+        DefaultTableModel model = 
+                (DefaultTableModel)viewTaskTableTwo.getModel();
         model.setRowCount(0);
         viewTaskTableTwo.repaint();
 
@@ -441,19 +487,25 @@ public class ViewChores extends javax.swing.JFrame {
         }
     }
     
+    // alert function 
     private void showAlertLate()
     {
 
+        // get database functions
         DatabaseFunctions df = new DatabaseFunctions();
+        // df = databse function
 
         var gtwc = df.GET_THIS_WEEK_CHORE_LIST();
+        // get this week chores list
 
         String toShow = "";
         for (Chore chore : gtwc) {
             if (!"Completed".equals(chore.getStatus()))
-                toShow += chore.getAssigned_to() + " - " + chore.getName() + "\n";
+                toShow += chore.getAssigned_to() + " - " + chore.getName() + 
+                        "\n";
         }
-        JOptionPane.showMessageDialog(null, toShow, "Chores not done", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, toShow, "Chores not done",
+                JOptionPane.WARNING_MESSAGE);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
