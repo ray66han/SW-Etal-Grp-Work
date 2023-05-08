@@ -15,7 +15,10 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
-
+/**
+ *
+ * @author Rayhan Chowdhury Bijoy
+ */
 //PieChartGUI class extends JFrame
 public class PieChartGUI extends JFrame {
 

@@ -10,6 +10,7 @@ public class Chore {
     private Integer time;
 
     /*
+    // Instance variables.
     private Integer id;
     private String name;
     private boolean selected;
@@ -21,7 +22,6 @@ public class Chore {
     private double user1Est;
     private double user2Est;
      */
-    
     /**
      * @param id The ID of the chore.
      * @param name The name & description of the chore.
@@ -34,7 +34,6 @@ public class Chore {
      * @param user1Est user1 Overall time estimate of this chore.
      * @param user2Est user2 Overall time estimate of this chore.
      */
-    
     public Chore(Integer id, String name, String status, Boolean reoccuring, Integer time, String assigned_to) {
         this.id = id;
         this.name = name;
@@ -45,8 +44,8 @@ public class Chore {
     }
 
     /*
-    // Defult chore.
-    public ChoreAlgo() {
+    // Default chore.
+    public Chore() {
         this.id = 0;
         this.name = "undefined";
         this.selected = false;
@@ -58,7 +57,7 @@ public class Chore {
     }
 
     // Chore constructor that works for the ChoreAssignAlgorithm.
-    public ChoreAlgo(Integer id, String name, boolean selcted, String status, boolean reoccuring, double us1est, double us2est) {
+    public Chore(Integer id, String name, boolean selcted, String status, boolean reoccuring, double us1est, double us2est) {
         this.id = id;
         this.name = name;
         this.selected = selcted;
@@ -69,7 +68,7 @@ public class Chore {
         this.user2Est = us2est;
     }
      */
-    
+    // Getters & Setters.
     public Integer getId() {
         return id;
     }
@@ -95,7 +94,6 @@ public class Chore {
         this.selected = Selected;
     }
      */
-    
     public String getStatus() {
         return status;
     }
@@ -129,7 +127,6 @@ public class Chore {
         this.assigned_to = assigned_to;
     }
      */
-    
     public Integer getTime() {
         return time;
     }
@@ -155,5 +152,4 @@ public class Chore {
         this.user2Est = user2Est;
     }
      */
-    
 }

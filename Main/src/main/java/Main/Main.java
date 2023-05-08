@@ -5,7 +5,10 @@ import org.Database.DatabaseFunctions;
 import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+/**
+ *
+ * @author Team
+ */
 public class Main {
     public static void main(String[] args) throws SQLException {
         // Example code showing how to interact with database.

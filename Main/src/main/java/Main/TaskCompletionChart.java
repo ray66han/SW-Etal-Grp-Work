@@ -17,7 +17,7 @@ import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 /**
  *
- * @author usercc
+ * @author Rayhan Chowdhury Bijoy
  */
 public class TaskCompletionChart {
     public static void main(String[] args) {
@@ -25,8 +25,15 @@ public class TaskCompletionChart {
         // Create the dataset
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         DatabaseFunctions df = new DatabaseFunctions();
-        int ot = 0, oc = 0, ond = 0;
+        int ot = 0, oc = 0, ond = 0; /** ot = user one total chores/task,
+         * oc = user one done chores
+         * ond = user one not done chores
+         */
         int tt = 0, tc = 0, tnd = 0;
+        /** tt = user two total chores/task,
+         * tc = user two done chores
+         * tnd = user two not done chores
+         */
         String one = "",two = "";
         try {
             User userOne = df.GET_USER_WITH_ID(0);

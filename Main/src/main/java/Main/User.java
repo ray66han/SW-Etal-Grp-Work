@@ -3,7 +3,7 @@ package Main;
 import java.util.Date;
 
 public class User {
-
+    // Instance variables.
     private Integer id;
     private String name;
     private Integer age;
@@ -13,7 +13,8 @@ public class User {
     private Integer totalChores;
     private Integer completedChores;
     private double weight;
-
+    
+    // Getters & Setters.
     public Integer getTotalChores() {
         return totalChores;
     }
@@ -86,6 +87,7 @@ public class User {
         this.weight = weight;
     }
 
+    // User constructor.
     public User(Integer id, String name, Integer points, Integer totalChores, Integer completedChores) {
         this.id = id;
         this.name = name;

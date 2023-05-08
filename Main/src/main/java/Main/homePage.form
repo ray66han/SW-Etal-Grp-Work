@@ -175,12 +175,12 @@
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="2" rowCount="3">
-                    <Column editable="true" title="Property" type="java.lang.Object">
+                    <Column editable="false" title="Property" type="java.lang.Object">
                       <Data value="Age"/>
                       <Data value="DOB"/>
                       <Data value="Gender"/>
                     </Column>
-                    <Column editable="true" title="Info" type="java.lang.Object">
+                    <Column editable="false" title="Info" type="java.lang.Object">
                       <Data value="20"/>
                       <Data value="18 Dec 2003"/>
                       <Data value="Male"/>
@@ -283,12 +283,12 @@
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="2" rowCount="3">
-                    <Column editable="true" title="Property" type="java.lang.Object">
+                    <Column editable="false" title="Property" type="java.lang.Object">
                       <Data value="Age"/>
                       <Data value="DOB"/>
                       <Data value="Gender"/>
                     </Column>
-                    <Column editable="true" title="Info" type="java.lang.Object">
+                    <Column editable="false" title="Info" type="java.lang.Object">
                       <Data value="18"/>
                       <Data value="12 Nov 2005"/>
                       <Data value="Male"/>
