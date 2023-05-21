@@ -3,6 +3,7 @@ package Main;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
 import org.Database.DatabaseFunctions;
 
 /*
@@ -42,7 +43,7 @@ public class createList extends javax.swing.JFrame {
         btnPullList = new javax.swing.JButton();
         lblCreateList = new javax.swing.JLabel();
         spList = new javax.swing.JScrollPane();
-        createChoresListTable = new javax.swing.JTable();
+        choresList = new javax.swing.JTable();
         btnAddTask = new javax.swing.JButton();
         btnPushList = new javax.swing.JButton();
         btnAddNames = new javax.swing.JButton();
@@ -98,8 +99,8 @@ public class createList extends javax.swing.JFrame {
         lblCreateList.setFont(new java.awt.Font("PT Serif Caption", 1, 18)); // NOI18N
         lblCreateList.setText("Weekly Task List");
 
-        createChoresListTable.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
-        createChoresListTable.setModel(new javax.swing.table.DefaultTableModel(
+        choresList.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
+        choresList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -118,7 +119,7 @@ public class createList extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        spList.setViewportView(createChoresListTable);
+        spList.setViewportView(choresList);
 
         btnAddTask.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
         btnAddTask.setText("Add Chores");
@@ -310,13 +311,19 @@ public class createList extends javax.swing.JFrame {
         
         ArrayList<Chore> list = Database.GET_FULL_CHORE_LIST();
         
-        //System.out.println(list);
-        
-        for (Chore c:list){
-            System.out.println(c.getId());
-            System.out.println(c.getName());
-            
+        DefaultTableModel choresTable = (DefaultTableModel)
+        choresList.getModel();
+        choresTable.setRowCount(0);
+        for (Chore c:list) {
+            choresTable.addRow(new Object[]{c.getId(), c.getName()});
         }
+        
+        
+        //for (Chore c:list){
+            //System.out.println(c.getId());
+            //System.out.println(c.getName());
+            
+        //}
     }//GEN-LAST:event_btnPullListActionPerformed
 
     public void insertChore(String d){
@@ -423,7 +430,7 @@ public class createList extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnPullList;
     private javax.swing.JButton btnPushList;
-    private javax.swing.JTable createChoresListTable;
+    private javax.swing.JTable choresList;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
