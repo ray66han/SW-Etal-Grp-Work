@@ -345,6 +345,9 @@ public class createList extends javax.swing.JFrame {
     private void btnAddTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTaskActionPerformed
         addTask x = new addTask(this, true);
         x.setVisible(true);
+        
+        
+        
     }//GEN-LAST:event_btnAddTaskActionPerformed
 
     private void btnAddNamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNamesActionPerformed
