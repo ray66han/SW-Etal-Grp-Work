@@ -303,13 +303,6 @@ public class createList extends javax.swing.JFrame {
         for (Chore c:list) {       //loops through chores list, adding each one to the jtable
             choresTable.addRow(new Object[]{c.getId(), c.getName()});
         }
-        
-        
-        //for (Chore c:list){
-            //System.out.println(c.getId());
-            //System.out.println(c.getName());
-            
-        //}
     }//GEN-LAST:event_btnPullListActionPerformed
 
     public void insertChore(String d){
