@@ -45,7 +45,6 @@ public class createList extends javax.swing.JFrame {
         spList = new javax.swing.JScrollPane();
         choresList = new javax.swing.JTable();
         btnAddTask = new javax.swing.JButton();
-        btnPushList = new javax.swing.JButton();
         btnAddNames = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -128,16 +127,6 @@ public class createList extends javax.swing.JFrame {
         btnAddTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddTaskActionPerformed(evt);
-            }
-        });
-
-        btnPushList.setFont(new java.awt.Font("PT Serif Caption", 0, 14)); // NOI18N
-        btnPushList.setText("Push List");
-        btnPushList.setMaximumSize(new java.awt.Dimension(80, 22));
-        btnPushList.setMinimumSize(new java.awt.Dimension(80, 22));
-        btnPushList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPushListActionPerformed(evt);
             }
         });
 
@@ -244,7 +233,6 @@ public class createList extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnPushList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddNames, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAddTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPullList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,9 +271,7 @@ public class createList extends javax.swing.JFrame {
                         .addComponent(btnAddTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnAddNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPushList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(61, 61, 61)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
         );
@@ -327,7 +313,9 @@ public class createList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPullListActionPerformed
 
     public void insertChore(String d){
-    System.out.println(d);      //this would the be pushed to the db using the CREATE_CHORE function provide by the database dev
+        DatabaseFunctions Database = new DatabaseFunctions();
+        Database.CREATE_CHORE(d, HEIGHT);
+        System.out.println("added " + d + " to the database");      //this would the be pushed to the db using the CREATE_CHORE function provide by the database dev
     }                           //but that code isn't inline with the brief, and thus doesn't work
     
     
@@ -346,7 +334,7 @@ public class createList extends javax.swing.JFrame {
     public void deleteChore(Integer id) throws SQLException{
         DatabaseFunctions Database = new DatabaseFunctions();
         Chore ID = Database.GET_CHORE_WITH_ID(id);
-        //Database.DELETE_CHORE(ID);
+        Database.DELETE_CHORE(ID);
         System.out.println("deleted " + ID + " from the database");
     }
     
@@ -363,10 +351,6 @@ public class createList extends javax.swing.JFrame {
         enterNames x = new enterNames(this, true);
         x.setVisible(true);
     }//GEN-LAST:event_btnAddNamesActionPerformed
-
-    private void btnPushListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPushListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPushListActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -442,7 +426,6 @@ public class createList extends javax.swing.JFrame {
     private javax.swing.JButton btnAddTask;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnPullList;
-    private javax.swing.JButton btnPushList;
     private javax.swing.JTable choresList;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

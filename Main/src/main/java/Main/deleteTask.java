@@ -1,5 +1,8 @@
 package Main;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static javax.management.Query.value;
 
 /*
@@ -106,7 +109,11 @@ public class deleteTask extends javax.swing.JDialog {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         Integer id = Integer.parseInt(txtChoreID.getText());
         
-        parent.deleteChore(id);
+        try {
+            parent.deleteChore(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(deleteTask.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         
         
