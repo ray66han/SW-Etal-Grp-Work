@@ -307,14 +307,14 @@ public class createList extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnPullListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPullListActionPerformed
-        DatabaseFunctions Database = new DatabaseFunctions();
+        DatabaseFunctions Database = new DatabaseFunctions();   //this calls the databsse functions
         
-        ArrayList<Chore> list = Database.GET_FULL_CHORE_LIST();
+        ArrayList<Chore> list = Database.GET_FULL_CHORE_LIST();     //queries database for chores list
         
-        DefaultTableModel choresTable = (DefaultTableModel)
+        DefaultTableModel choresTable = (DefaultTableModel)     //sets a table model so i can edit the table
         choresList.getModel();
-        choresTable.setRowCount(0);
-        for (Chore c:list) {
+        choresTable.setRowCount(0);     //resets the table to empty
+        for (Chore c:list) {       //loops through chores list, adding each one to the jtable
             choresTable.addRow(new Object[]{c.getId(), c.getName()});
         }
         
@@ -327,8 +327,8 @@ public class createList extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPullListActionPerformed
 
     public void insertChore(String d){
-    System.out.println(d);      //this will need to be added to the list
-    }
+    System.out.println(d);      //this would the be pushed to the db using the CREATE_CHORE function provide by the database dev
+    }                           //but that code isn't inline with the brief, and thus doesn't work
     
     
     public void insertNames(String n1, String n2) throws SQLException{
