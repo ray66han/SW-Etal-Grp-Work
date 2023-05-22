@@ -107,7 +107,7 @@ public class deleteTask extends javax.swing.JDialog {
     }//GEN-LAST:event_txtChoreIDActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        Integer id = Integer.parseInt(txtChoreID.getText());
+        Integer id = Integer.valueOf(txtChoreID.getText());
         
         try {
             parent.deleteChore(id);
