@@ -388,7 +388,8 @@ public class createList extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        deleteTask x = new deleteTask(this, true);
+        x.setVisible(true);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
