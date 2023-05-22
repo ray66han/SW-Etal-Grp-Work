@@ -343,9 +343,11 @@ public class createList extends javax.swing.JFrame {
     
     
     
-    public void deleteChore(Integer id){
+    public void deleteChore(Integer id) throws SQLException{
         DatabaseFunctions Database = new DatabaseFunctions();
-        //System.out.println("deleted " + ID + " from the database");
+        Chore ID = Database.GET_CHORE_WITH_ID(id);
+        //Database.DELETE_CHORE(ID);
+        System.out.println("deleted " + ID + " from the database");
     }
     
     
