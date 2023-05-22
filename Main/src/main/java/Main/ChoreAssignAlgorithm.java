@@ -184,6 +184,9 @@ public class ChoreAssignAlgorithm {
             user1WeightCarriedOver = user1Weight - user2Weight;
             user2WeightCarriedOver = 0;
         }
+        /* The int x = 3; is needed as you need to use it as a breakpoint
+        for debugging as this is the only way to see how the algorithm works.
+        */
         int x = 3;
         //SendAssignedChores();
     }//End of choreAlgorithm.
