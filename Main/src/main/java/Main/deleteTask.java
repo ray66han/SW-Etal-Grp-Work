@@ -1,5 +1,7 @@
 package Main;
 
+import static javax.management.Query.value;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
@@ -102,7 +104,9 @@ public class deleteTask extends javax.swing.JDialog {
     }//GEN-LAST:event_txtChoreIDActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        //parent.deleteChore(txtChoreID.getText());
+        Integer id = Integer.parseInt(txtChoreID.getText());
+        
+        parent.deleteChore(id);
         this.dispose();
         
         

@@ -342,6 +342,13 @@ public class createList extends javax.swing.JFrame {
     }
     
     
+    
+    public void deleteChore(Integer id){
+        DatabaseFunctions Database = new DatabaseFunctions();
+        //System.out.println("deleted " + ID + " from the database");
+    }
+    
+    
     private void btnAddTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTaskActionPerformed
         addTask x = new addTask(this, true);
         x.setVisible(true);
