@@ -337,7 +337,7 @@ public class createList extends javax.swing.JFrame {
         Database.CREATE_USER(n1);
         System.out.println("added "+n1+" to the database");
         
-        Database.CREATE_USER(n1);
+        Database.CREATE_USER(n2);
         System.out.println("added "+n2+" to the database");
     }
     
